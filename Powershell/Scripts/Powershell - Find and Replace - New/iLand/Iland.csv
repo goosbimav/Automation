@@ -1,0 +1,23 @@
+OldValue,NewValue
+#-GLOBAL CALLS-
+"cartsvc.macmillanhighered.com","iqa.cartsvc.macmillanhighered.com"
+"macmillanhighered.com","http://iqa.macmillanhighered.com"
+"bcs.bfwpub.com","iqa.bcs.bfwpub.com"
+"activation.macmillanhighered.com","iqa.activation.macmillanhighered.com"
+"coresvcs.bfwpub.com","iqa.coresvcs.bfwpub.com"
+"cart.macmillanhighered.com","iqa.cart.macmillanhighered.com"
+"dlap.bfwpub.com","iqa.dlap.bfwpub.com"
+"px.bfwpub.com","iqa.px.bfwpub.com"
+#-SMTP-
+"techsupport@bfwpub.com","webstaff@bfwpub.com"
+"Production","Staging"
+"RemoteOnly","Off"
+"Transport","None"
+"mfcfulfillment.macmillanhighered.com","stg-mfcfulfillment.macmillanhighered.com"
+#-CONNECTION STRING VALUES-
+#SERVER=bfwdata","SERVER=HBEURASQL01"
+#"Source=DB17'\'db17","Source=HBEURASQL01"
+
+
+
+

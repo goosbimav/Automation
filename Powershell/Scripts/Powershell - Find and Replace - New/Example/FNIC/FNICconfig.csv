@@ -1,0 +1,47 @@
+OldValue,NewValue
+"_CRU4_STAGE","_FNIC1_STAGE"
+#"<ConfigItem name="server" value="https://stage-services.icg360.org"/>","<ConfigItem name="server" value="https://stage-fnic-svc.icg360.org"/>"
+#BACKEND VHOST CALLS
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"https://stage-services.icg360.org/ixconfig/cru/","https://stage-services.icg360.org/ixconfig/fnic-1/"
+"https://stage-services.icg360.org/ixconfig/cru-4","https://stage-services.icg360.org/ixconfig/fnic-1"
+"http://config.ix.ics360.com/","https://stage-services.icg360.org/ixconfig/"
+"https://stage-sagesure-svc.icg360.org/cru-4/","https://stage-fnic-svc.icg360.org/fnic-1/"
+"https://stage-sagesure-svc.icg360.org/","https://stage-fnic-svc.icg360.org/"
+"https://stage-services.icg360.org/ixrelay","https://stage-fnic-svc.icg360.org/fnic-1/ixrelay"
+"https://stage-services.icg360.org/ixprofiler/","https://stage-fnic-svc.icg360.org/fnic-1/ixprofiler/"
+"https://stage-services.icg360.org/fnic-1/","https://stage-fnic-svc.icg360.org/fnic-1/"
+"https://ixdirectory.ics360.com/","https://stage-ixdirectory.icg360.org/"
+"https://ixdirectory.icg360.com/","https://stage-ixdirectory.icg360.org/"
+"https://staging.cxserver.ics360.org","https://stage-services.icg360.org/cxserver"
+"http://ALEXANDERWEB01:8207","http://stage-pxquotingengine.fnic-1"
+#REVERSE DAMAGE
+#VM HOST NAMES
+"AARON","ALEXANDER"
+"ANDERSON","ALEXANDER"
+"WEB_STAGE_05","ALEXANDERWEB01"
+"ALEXANDERsadb01","ALEXANDERSADB01"
+#FNIC PROXY VHOST IP's
+"172.19.140.50","172.19.140.54"
+"172.19.140.51","172.19.140.55"
+"172.19.140.52","172.19.140.56"
+"172.19.140.53","172.19.140.57"
+#FNIC NODE VHOST IP's
+"172.19.140.20","172.19.140.58"
+"172.19.140.21","172.19.140.59"
+"172.19.140.22","172.19.140.60"
+"172.19.140.23","172.19.140.61"
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+  

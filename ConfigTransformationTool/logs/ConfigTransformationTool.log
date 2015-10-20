@@ -1,0 +1,164 @@
+[Application Starts]
+2014-12-19 16:12:40 Create Transformation Task.
+2014-12-19 16:12:41 Start tranformation to 'destinaton.config'.
+2014-12-19 16:12:41 System.IO.FileNotFoundException: Can't find source file.
+File name: 'source.config'
+   at ConfigTransformationTool.Base.TransformationTask.Execute(String destinationFilePath)
+   at ConfigTransformationTool.Program.Main(String[] args)
+[Application Starts]
+2014-12-19 16:14:15 Create Transformation Task.
+2014-12-19 16:14:15 Start tranformation to 'd.config'.
+2014-12-19 16:14:15 System.IO.FileNotFoundException: Can't find source file.
+File name: 's.config'
+   at ConfigTransformationTool.Base.TransformationTask.Execute(String destinationFilePath)
+   at ConfigTransformationTool.Program.Main(String[] args)
+[Application Starts]
+2014-12-19 16:25:30 Create Transformation Task.
+2014-12-19 16:25:30 Start tranformation to 'd.config'.
+2014-12-19 16:25:30 Source file: 's.config'.
+2014-12-19 16:25:30 Transform  file: 't.config'.
+2014-12-19 16:25:30 Transforming Source File: s.config
+2014-12-19 16:25:30   Applying Transform File: t.config
+2014-12-19 16:25:30 Unexpected end of file has occurred. The following elements are not closed: configuration. Line 13, position 2.
+2014-12-19 16:25:30 Transformation failed
+[Application Stops]
+[Application Starts]
+2014-12-19 16:26:11 Create Transformation Task.
+2014-12-19 16:26:11 Start tranformation to 'd.config'.
+2014-12-19 16:26:11 Source file: 's.config'.
+2014-12-19 16:26:11 Transform  file: 't.config'.
+2014-12-19 16:26:11 Transforming Source File: s.config
+2014-12-19 16:26:11   Applying Transform File: t.config
+2014-12-19 16:26:11 Unexpected end of file has occurred. The following elements are not closed: configuration. Line 13, position 2.
+2014-12-19 16:26:11 Transformation failed
+[Application Stops]
+[Application Starts]
+2014-12-19 16:27:02 Create Transformation Task.
+2014-12-19 16:27:02 Start tranformation to 'd.config'.
+2014-12-19 16:27:02 Source file: 's.config'.
+2014-12-19 16:27:02 Transform  file: 't.config'.
+2014-12-19 16:27:02 Transforming Source File: s.config
+2014-12-19 16:27:02   Applying Transform File: t.config
+2014-12-19 16:27:02   Executing Replace (transform line 8, 37)
+2014-12-19 16:27:02     on /configuration/custom/groups/group/values/value[@key='Test2']
+2014-12-19 16:27:02     Applying to 'value' element (source line 10, 7)
+2014-12-19 16:27:02     Replaced 'value' element
+2014-12-19 16:27:02   Done executing Replace
+2014-12-19 16:27:02   Output File: d.config
+2014-12-19 16:27:02 Transformation succeeded
+[Application Stops]
+[Application Starts]
+2014-12-22 13:41:02 Create Transformation Task.
+2014-12-22 13:41:02 Start tranformation to 'web.config'.
+2014-12-22 13:41:02 Source file: 'Web.Prod.config'.
+2014-12-22 13:41:02 Transform  file: 'Web.iLand.config'.
+2014-12-22 13:41:02 Transforming Source File: Web.Prod.config
+2014-12-22 13:41:02   Applying Transform File: Web.iLand.config
+2014-12-22 13:41:02   Executing Replace (transform line 5, 145)
+2014-12-22 13:41:02     on /configuration/loggingConfiguration
+2014-12-22 13:41:02     Applying to 'loggingConfiguration' element (source line 5, 3)
+2014-12-22 13:41:02     Replaced 'loggingConfiguration' element
+2014-12-22 13:41:02   Done executing Replace
+2014-12-22 13:41:02   Executing Replace (transform line 7, 585)
+2014-12-22 13:41:02     on /configuration/loggingConfiguration/listeners/add[@fileName='S:\logs\ShoppingCart\SVC\CartService.log']
+2014-12-22 13:41:02     Applying to 'add' element (source line 5, 245)
+2014-12-22 13:41:02     Replaced 'add' element
+2014-12-22 13:41:02   Done executing Replace
+2014-12-22 13:41:02   Executing SetAttributes (transform line 35, 108)
+2014-12-22 13:41:02     on /configuration/appSettings/add[@key='return_url']
+2014-12-22 13:41:02     Applying to 'add' element (source line 35, 4)
+2014-12-22 13:41:02     Set 'key' attribute
+2014-12-22 13:41:02     Set 'value' attribute
+2014-12-22 13:41:02     Set 2 attributes
+2014-12-22 13:41:02   Done executing SetAttributes
+2014-12-22 13:41:02   Executing SetAttributes (transform line 36, 105)
+2014-12-22 13:41:02     on /configuration/appSettings/add[@key='cancel_url']
+2014-12-22 13:41:02     Applying to 'add' element (source line 36, 4)
+2014-12-22 13:41:02     Set 'key' attribute
+2014-12-22 13:41:02     Set 'value' attribute
+2014-12-22 13:41:02     Set 2 attributes
+2014-12-22 13:41:02   Done executing SetAttributes
+2014-12-22 13:41:02   Executing SetAttributes (transform line 37, 92)
+2014-12-22 13:41:02     on /configuration/appSettings/add[@key='error_url']
+2014-12-22 13:41:02     Applying to 'add' element (source line 37, 4)
+2014-12-22 13:41:02     Set 'key' attribute
+2014-12-22 13:41:02     Set 'value' attribute
+2014-12-22 13:41:02     Set 2 attributes
+2014-12-22 13:41:02   Done executing SetAttributes
+2014-12-22 13:41:02   Executing Replace (transform line 40, 153)
+2014-12-22 13:41:02     on /configuration/connectionStrings/add[@name='RAConn']
+2014-12-22 13:41:02     Applying to 'add' element (source line 44, 4)
+2014-12-22 13:41:02     Replaced 'add' element
+2014-12-22 13:41:02   Done executing Replace
+2014-12-22 13:41:02   Executing SetAttributes (transform line 47, 11)
+2014-12-22 13:41:02     on /configuration/system.serviceModel/services/service/endpoint[@contract='BFW.CartServices.ICartService']
+2014-12-22 13:41:02     Applying to 'endpoint' element (source line 50, 6)
+2014-12-22 13:41:02     Set 'address' attribute
+2014-12-22 13:41:02     Set 'binding' attribute
+2014-12-22 13:41:02     Set 'bindingConfiguration' attribute
+2014-12-22 13:41:02     Set 'behaviorConfiguration' attribute
+2014-12-22 13:41:02     Set 'name' attribute
+2014-12-22 13:41:02     Set 'contract' attribute
+2014-12-22 13:41:02     Set 6 attributes
+2014-12-22 13:41:02   Done executing SetAttributes
+2014-12-22 13:41:02   Output File: web.config
+2014-12-22 13:41:02 Transformation succeeded
+[Application Stops]
+[Application Starts]
+2014-12-22 13:43:29 Create Transformation Task.
+2014-12-22 13:43:29 Start tranformation to 'Web.config'.
+2014-12-22 13:43:29 Source file: 'Web.config'.
+2014-12-22 13:43:29 Transform  file: 'Web.iLand.config'.
+2014-12-22 13:43:29 Transforming Source File: Web.config
+2014-12-22 13:43:29   Applying Transform File: Web.iLand.config
+2014-12-22 13:43:29   Executing Replace (transform line 5, 145)
+2014-12-22 13:43:29     on /configuration/loggingConfiguration
+2014-12-22 13:43:29     Applying to 'loggingConfiguration' element (source line 7, 3)
+2014-12-22 13:43:29     Replaced 'loggingConfiguration' element
+2014-12-22 13:43:29   Done executing Replace
+2014-12-22 13:43:29   Executing Replace (transform line 7, 585)
+2014-12-22 13:43:29     on /configuration/loggingConfiguration/listeners/add[@fileName='S:\logs\ShoppingCart\SVC\CartService.log']
+2014-12-22 13:43:29     Applying to 'add' element (source line 5, 245)
+2014-12-22 13:43:29     Replaced 'add' element
+2014-12-22 13:43:29   Done executing Replace
+2014-12-22 13:43:29   Executing SetAttributes (transform line 35, 108)
+2014-12-22 13:43:29     on /configuration/appSettings/add[@key='return_url']
+2014-12-22 13:43:29     Applying to 'add' element (source line 76, 4)
+2014-12-22 13:43:29     Set 'key' attribute
+2014-12-22 13:43:29     Set 'value' attribute
+2014-12-22 13:43:29     Set 2 attributes
+2014-12-22 13:43:29   Done executing SetAttributes
+2014-12-22 13:43:29   Executing SetAttributes (transform line 36, 105)
+2014-12-22 13:43:29     on /configuration/appSettings/add[@key='cancel_url']
+2014-12-22 13:43:29     Applying to 'add' element (source line 77, 4)
+2014-12-22 13:43:29     Set 'key' attribute
+2014-12-22 13:43:29     Set 'value' attribute
+2014-12-22 13:43:29     Set 2 attributes
+2014-12-22 13:43:29   Done executing SetAttributes
+2014-12-22 13:43:29   Executing SetAttributes (transform line 37, 92)
+2014-12-22 13:43:29     on /configuration/appSettings/add[@key='error_url']
+2014-12-22 13:43:29     Applying to 'add' element (source line 78, 4)
+2014-12-22 13:43:29     Set 'key' attribute
+2014-12-22 13:43:29     Set 'value' attribute
+2014-12-22 13:43:29     Set 2 attributes
+2014-12-22 13:43:29   Done executing SetAttributes
+2014-12-22 13:43:29   Executing Replace (transform line 40, 153)
+2014-12-22 13:43:29     on /configuration/connectionStrings/add[@name='RAConn']
+2014-12-22 13:43:29     Applying to 'add' element (source line 92, 4)
+2014-12-22 13:43:29     Replaced 'add' element
+2014-12-22 13:43:29   Done executing Replace
+2014-12-22 13:43:29   Executing SetAttributes (transform line 47, 11)
+2014-12-22 13:43:29     on /configuration/system.serviceModel/services/service/endpoint[@contract='BFW.CartServices.ICartService']
+2014-12-22 13:43:29     Applying to 'endpoint' element (source line 105, 6)
+2014-12-22 13:43:29     Set 'address' attribute
+2014-12-22 13:43:29     Set 'binding' attribute
+2014-12-22 13:43:29     Set 'bindingConfiguration' attribute
+2014-12-22 13:43:29     Set 'behaviorConfiguration' attribute
+2014-12-22 13:43:29     Set 'name' attribute
+2014-12-22 13:43:29     Set 'contract' attribute
+2014-12-22 13:43:29     Set 6 attributes
+2014-12-22 13:43:29   Done executing SetAttributes
+2014-12-22 13:43:29   Output File: Web.config
+2014-12-22 13:43:29 Could not write Destination file: The process cannot access the file 'D:\E-stuff\Automation\ConfigTransformationTool\Examples\01\New folder\Web.config' because it is being used by another process.
+2014-12-22 13:43:29 Transformation failed
+[Application Stops]

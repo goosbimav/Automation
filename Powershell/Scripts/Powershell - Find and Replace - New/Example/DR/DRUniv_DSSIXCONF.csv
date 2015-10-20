@@ -1,0 +1,42 @@
+OldValue,NewValue
+#"va-","dr-"
+#UNIVERSAL SERVICES URL CHANGES
+"https://cxserver.icg360.com/","https://dr-cxserver.icg360.com/"
+"https://ixdirectory.ics360.com","https://dr-ixdirectory.icg360.com"
+"https://ixdirectory.icg360.com","https://dr-ixdirectory.icg360.com"
+"https://services.icg360.com","https://dr-services.icg360.com"
+"https://ixlog.icg360.com/","https://dr-ixlog.icg360.com/"
+"https://mortgageemanager.icg360.com/","https://dr-mortgageemanager.icg360.com/"
+"https://agents.sagesure.com","https://dr-agents.sagesure.com"
+"https://va-agents.sagesure.com","https://dr-agents.sagesure.com"
+"https://services.sagesure.com","https://dr-services.sagesure.com"
+"https://mxadmin.sagesure.com/","https://dr-mxadmin.sagesure.com/"
+"http://pxquotingengine.dss/","http://dr-pxquotingengine.dss/"
+"http://ixrelay.dss","http://dr-ixrelay.dss"
+"https://central.ics360.com","https://dr-central.ics360.com"
+"http://pxquotingengine.cru-4/","http://dr-pxquotingengine.cru-4/"
+#IXLIBRARY DOC STOTE
+#SMTP SERVER
+"172.19.111.60","172.19.111.60"
+"randomtask.opd.com","randomtask.opd.com"
+#VM HOST NAMES
+"Poseidon","NEPTUNE"
+"zeus","JUPITER"
+"aphrodite","VENUS"
+#DSS BALANCER NODE MEMBER IP's
+"172.19.110.62","172.19.110.102"
+"172.19.110.64","172.19.110.104"
+"172.19.110.77","172.19.110.106"
+#UNIVERSAL VHOST IP's
+"172.19.110.52","172.19.110.90" 
+"172.19.110.53","172.19.110.91"
+"172.19.110.74","172.19.110.92" 
+"172.19.110.69","172.19.110.93"
+
+
+
+
+
+
+
+  

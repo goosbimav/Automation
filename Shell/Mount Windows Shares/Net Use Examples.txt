@@ -1,0 +1,1 @@
+net use M: \\touchsmart\Share /Persistent:Yes

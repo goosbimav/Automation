@@ -1,0 +1,45 @@
+OldValue,NewValue
+"va-","dr-"
+"Jadr-","Java-"
+#UNIVERSAL SERVICES ROUTER
+"services.icg360.com","dr-services.icg360.com"
+"dr-dr-services.icg360.com","dr-services.icg360.com"
+#BACKEND VHOST CALLS
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"https://ixdirectory.ics360.com","https://dr-ixdirectory.icg360.com"
+"https://ixdirectory.icg360.com","https://dr-ixdirectory.icg360.com"
+"http://agentportal","http://dr-agentportal"
+"http://mxadmin","http://dr-mxadmin"
+"http://sagesurebillpay","http://dr-sagesurebillpay"
+"http://occidentalbillpay","http://dr-occidentalbillpay"
+"http://ixlogic","http://dr-ixlogic"
+"http://ixlibrary","http://dr-ixlibrary"
+"http://ixprofiler","http://dr-ixprofiler"
+"http://pxcentral","http://dr-pxcentral"
+"http://pxgateway","http://dr-pxgateway"
+"http://pxpay","http://dr-pxpay"
+"http://pxpower","http://dr-pxpower"
+"http://pxserver","http://dr-pxserver"
+"http://cru_policycentral","http://dr-cru_policycentral"
+#REVERSE DAMAGE
+"https://fsic-dr-services.icg360.com/","https://fsic-services.icg360.com/"
+#SAGSEURE SERVICES ROUTER
+"services.sagesure.com","dr-services.sagesure.com"
+"dr-dr-services.sagesure.com","dr-services.sagesure.com"
+#VM HOST NAMES
+"aphrodite","venus"
+#SAGESURE VHOST IP's
+"172.19.110.50","172.19.110.108" 
+"172.19.110.51","172.19.110.109"
+"172.19.110.72","172.19.110.110" 
+"172.19.110.73","172.19.110.111"
+
+
+
+
+
+
+
+
+
+  

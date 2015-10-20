@@ -1,0 +1,6 @@
+Setup.exe /install /i cachingservice,cacheclient,cacheadmin /l:c:\temp\setup.log
+
+Setup.exe /install /i cachingservice,cacheclient,cacheadmin /logfile c:\temp\setup.log
+
+#This implementation works. *NOTE: the double quotes around commas
+Setup.exe /i hostingservices","hostingadmin","cachingservice","cacheclient","cacheadmin

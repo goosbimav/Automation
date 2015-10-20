@@ -1,0 +1,29 @@
+OldValue,NewValue
+#BACKEND VHOST CALLS
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"https://ixdirectory.ics360.com","https://stage-ixdirectory.icg360.org"
+"https://staging-services.icg360.org/ixlog","https://stage-services.icg360.org/ixlog"
+"https://staging-services.icg360.org/ixprofiler","https://stage-services.icg360.org/ixprofiler"
+"https://staging-services.icg360.org/ixrelay","https://stage-services.icg360.org/ixrelay"
+"https://staging-services.icg360.org/ixvocab","https://stage-services.icg360.org/ixvocab"
+"http://staging.ixdoc","https://stage-services.icg360.org/ixdoc"
+"https://staging.insightcentral.ics360.org","https://stage-central.icg360.org"
+#REVERSE DAMAGE
+#VM HOST NAMES
+#FSIC PROXY VHOST IP's
+#FSIC NODE VHOST IP's
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+  

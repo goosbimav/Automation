@@ -1,0 +1,38 @@
+OldValue,NewValue
+"va-","dr-"
+#BACKEND VHOST CALLS
+"ServerName cxrisk","ServerName dr-cxrisk"
+"ServerAlias cxrisk.dss","ServerAlias dr-cxrisk.dss"
+"ServerName cxserver","ServerName dr-cxserver"
+"ServerAlias cxserver","ServerAlias dr-cxserver"
+"ServerName ixdoc","ServerName dr-ixdoc"
+"ServerAlias ixdoc","ServerAlias dr-ixdoc"
+"ServerName ixrelay","ServerName dr-ixrelay"
+"ServerAlias ixrelay","ServerAlias dr-ixrelay"
+"ServerName pxquotingengine","ServerName dr-pxquotingengine"
+"ServerAlias pxquotingengine","ServerAlias dr-pxquotingengine"
+"ServerName pxserver","ServerName dr-pxserver"
+"ServerAlias pxserver","ServerAlias dr-pxserver"
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"http://ixdoc","http://dr-ixdoc"
+"http://pxserver","http://dr-pxserver"
+"http://cxrisk","http://dr-cxrisk"
+"http://cxcat","http://dr-cxcat"
+"balancer://pxServerJadr-dss","balancer://pxServerJava-dss"
+#VM HOST NAMES
+"zeus","jupiter"
+#DSS VHOST NODE IP's
+"172.19.110.62","172.19.110.102" 
+"172.19.110.63","172.19.110.103"
+"172.19.110.64","172.19.110.104" 
+"172.19.110.65","172.19.110.105"
+"172.19.110.77","172.19.110.106"
+"172.19.110.78","172.19.110.107"
+
+
+
+
+
+
+
+  

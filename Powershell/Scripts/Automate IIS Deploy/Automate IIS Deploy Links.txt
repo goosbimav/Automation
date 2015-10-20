@@ -1,0 +1,18 @@
+
+
+PowerShell Snap-in: Creating Web-Sites, Web applications, Virtual Directories and Application Pools:
+http://www.iis.net/learn/manage/powershell/powershell-snap-in-creating-web-sites-web-applications-virtual-directories-and-application-pools
+
+
+Powershell:
+
+1) http://www.infoq.com/articles/AppVeyor-CI
+2) http://stackoverflow.com/questions/14810079/automate-web-deploy-to-remote-iis-server
+3) http://msdn.microsoft.com/en-us/library/ff731049%28v=azure.10%29.aspx
+4) http://www.iis.net/learn/publish/using-web-deploy/web-deploy-powershell-cmdlets
+5) http://weblogs.asp.net/scottgu/archive/2010/09/13/automating-deployment-with-microsoft-web-deploy.aspx
+6) http://www.iis.net/learn/publish/using-web-deploy/powershell-scripts-for-automating-web-deploy-setup
+7) http://windowsitpro.com/article/windows-powershell/microsoft-internet-information-services-iis-powershell-144224
+
+
+

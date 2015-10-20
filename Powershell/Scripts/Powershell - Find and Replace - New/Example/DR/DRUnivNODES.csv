@@ -1,0 +1,38 @@
+OldValue,NewValue
+"va-","dr-"
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"Servername agencyadmin","Servername dr-agencyadmin"
+"ServerAlias agencyadmin","ServerAlias dr-agencyadmin"
+"ServerName cat-mgr","ServerName dr-cat-mgr"
+"ServerAlias cat-mgr","ServerAlias dr-cat-mgr"
+"Servername insightcentral","Servername dr-insightcentral"
+"ServerAlias insightcentral","ServerAlias dr-insightcentral"
+"ServerName ixconfig","ServerName dr-ixconfig"
+"ServerAlias ixconfig","ServerAlias dr-ixconfig"
+"ServerName ixdirectory","ServerName dr-ixdirectory"
+"ServerAlias ixdirectory.icg360.com","ServerAlias ixdirectory.icg360.com dr-ixdirectory.icg360.com"
+"ServerName ixlibrary","ServerName dr-ixlibrary"
+"ServerAlias ixlibrary","ServerAlias dr-ixlibrary"
+"ServerName ixprofiler","ServerName dr-ixprofiler"
+"ServerAlias ixprofiler","ServerAlias dr-ixprofiler"
+"ServerName mortgageemanager","ServerName dr-mortgageemanager"
+"ServerAlias mortgageemanager","ServerAlias dr-mortgageemanager"
+"Servername policycentral","Servername dr-policycentral"
+"ServerAlias policycentral","ServerAlias dr-policycentral"
+"ServerName policycentral","ServerName dr-policycentral"
+"ServerAlias policycentral","ServerAlias dr-policycentral"
+#VM HOST NAMES
+"zeus","jupiter"
+#UNIVERSAL BACKEND NODE VHOST IP's
+"172.19.110.54","172.19.110.94" 
+"172.19.110.55","172.19.110.95"
+"172.19.110.56","172.19.110.96" 
+"172.19.110.57","172.19.110.97"
+
+
+
+
+
+
+
+  

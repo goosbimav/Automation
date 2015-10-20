@@ -1,0 +1,34 @@
+OldValue,NewValue
+"va-","dr-"
+#BACKEND VHOST CALLS
+"ServerName cxcat.icg","ServerName dr-cxcat.icg"
+"ServerName ixdoc.icg","ServerName dr-ixdoc.icg"
+"ServerName ixrelay.dss","ServerName dr-ixrelay.dss"
+"pxquotingengine.dss","dr-pxquotingengine.dss"
+"ServerName pxserver.dss","ServerName dr-pxserver.dss"
+"ServerAlias dr-dss.icg360.com pxserver.dss","ServerAlias dr-pxserver.dss dr-dss.icg360.com"
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"http://ixdoc","http://dr-ixdoc"
+"http://pxserver","http://dr-pxserver"
+"http://cxrisk","http://dr-cxrisk"
+"http://cxcat","http://dr-cxcat"
+"balancer://pxServerJadr-dss","balancer://pxServerJava-dss"
+#VM HOST NAMES
+"zeus","jupiter"
+#DSS BALANCER NODE MEMBER IP's
+"172.19.110.62","172.19.110.102"
+"172.19.110.64","172.19.110.104"
+"172.19.110.77","172.19.110.106"
+#DSS PROXY VHOST IP's
+"172.19.110.60","172.19.110.98" 
+"172.19.110.61","172.19.110.99"
+"172.19.110.75","172.19.110.100" 
+"172.19.110.76","172.19.110.101"
+
+
+
+
+
+
+
+  

@@ -1,0 +1,12 @@
+#Steps to Enable PSRemoting
+
+1) powershell.exe "Enable-PSSessionConfiguration -Force"
+2) powershell.exe "Enable-PSRemoting -Force"
+
+#Steps to Reverse and Disable PsRemoting
+
+1) powershell.exe "Disable-PSRemoting -Force"
+2) powershell.exe "winrm delete winrm/config/listener?address=*+transport=HTTP"
+3) powershell.exe "Stop-Service winrm"
+4) powershell.exe "Set-Service -Name winrm -StartupType Disabled"
+5) powershell.exe "Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy -Value 0 -Type DWord"

@@ -1,0 +1,42 @@
+OldValue,NewValue
+"-sagesure","-fnic"
+".sagesure",".fnic-1"
+"cru-4","fnic-1"
+"-cru4","-fnic"
+"-cru","-fnic"
+"agentportalSagesure","agentportal"
+#CONF FILE NAMES
+"cru-agentportal.conf","agentportal.fnic.conf"
+#BACKEND VHOST CALLS
+"stage-sagesure-agents","stage-fnic-agents"
+"stage-sagesure-svc.icg360.org","stage-fnic-svc.icg360.org" 
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"https://stage-services.icg360.org/ixconfig/cru/","https://stage-services.icg360.org/ixconfig/fnic-1/"
+"https://stage-sagesure-svc.icg360.org","https://stage-fnic-svc.icg360.org"
+#REVERSE DAMAGE
+#VM HOST NAMES
+"aaron","alexander"
+#FNIC PROXY VHOST IP's
+"172.19.140.50","172.19.140.54"
+"172.19.140.51","172.19.140.55"
+"172.19.140.52","172.19.140.56"
+"172.19.140.53","172.19.140.57"
+#FNIC NODE VHOST IP's
+"172.19.140.20","172.19.140.58"
+"172.19.140.21","172.19.140.59"
+"172.19.140.22","172.19.140.60"
+"172.19.140.23","172.19.140.61"
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+  

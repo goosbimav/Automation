@@ -1,0 +1,51 @@
+OldValue,NewValue
+#BACKEND VHOST CALLS
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"https://ixdirectory.ics360.com","https://stage-ixdirectory.icg360.org"
+"http://staging.ixdirectory","https://stage-ixdirectory.icg360.org"
+"https://staging-services.icg360.org/ixdirectory","https://stage-services.icg360.org/ixdirectory"
+"https://staging-services.icg360.org/cxserver","https://stage-services.icg360.org/cxserver"
+"https://staging-services.icg360.org/ixvocab","https://stage-services.icg360.org/ixvocab"
+"https://staging-services.icg360.org/ixprofiler","https://stage-services.icg360.org/ixprofiler"
+"https://staging-services.icg360.org/ixrelay","https://stage-services.icg360.org/ixrelay"
+"https://staging-services.icg360.org/ixlog","https://stage-services.icg360.org/ixlog"
+"https://staging-services.icg360.org/pxcentral","https://stage-services.icg360.org/pxcentral"
+"https://staging-services.icg360.org/ixlibrary","https://stage-services.icg360.org/ixlibrary"
+"https://staging-services.icg360.org/cru-4/","https://stage-sagesure-svc.icg360.org/cru-4/"
+"http://staging.ixlogic.fnic-1/","https://staging-services.icg360.org/fnic-1/ixlogic"
+"http://staging.ixlogic.fsic-1/","https://staging-services.icg360.org/fsic-1/ixlogic"
+"http://staging.agentportal.cru","https://stage-sagesure-agents.icg360.org"
+"https://staging-cru-agents.icg360.org","https://stage-sagesure-agents.icg360.org"
+"http://staging.cxrisk.insight","https://stage-cxrisk.icg360.org"
+"https://staging-services.icg360.org/cxserver","https://stage-services.icg360.org/cxserver"
+"http://staging.ixdoc","https://stage-services.icg360.org/ixdoc"
+"https://staging.insightcentral.ics360.org","https://stage-central.icg360.org"
+#PROD
+"https://services.ics360.com/ixlibrary","https://services.icg360.com/ixlibrary"
+"https://services.ics360.com/ixvocab","https://services.icg360.com/ixvocab"
+"https://services.ics360.com/ixprofiler","https://services.icg360.com/ixprofiler"
+"https://services.ics360.com/ixrelay","https://services.icg360.com/ixrelay"
+"https://services.cru360.com/cru-4/","https://services.sagesure.com/cru-4/"
+"http://ixlogic.cru-4","https://services.sagesure.com/cru-4/ixlogic"
+"https://agents.cru360.com","https://agents.sagesure.com"
+"https://cxrisk.ics360.com","https://cxrisk.icg360.com"
+"https://cxserver.ics360.com","https://cxserver.icg360.com"
+#REVERSE DAMAGE
+#VM HOST NAMES
+#FSIC PROXY VHOST IP's
+#FSIC NODE VHOST IP's
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+  

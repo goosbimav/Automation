@@ -1,0 +1,1 @@
+schtasks.exe /create /s HBPXBCS03 /ru svc_tasksched@hbpna.com /rp W!ndowTa8k /RL HIGHEST  /tn DELETE_OLD_LOGS /tr "Powershell.exe -ExecutionPolicy Unrestricted c:\Scripts\DeleteOLDlogs.ps1" /sc Daily /mo 1 /st 05:00 /F"

@@ -1,0 +1,39 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tue Jan 13 12:37:05 2015
+
+   Source : \\HBEUPXAR01\S$\Logs\
+     Dest : \\192.168.78.119\logs\HBEUPXAR01\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /COPYALL /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	\\HBEUPXAR01\S$\Logs\
+	                   3	\\HBEUPXAR01\S$\Logs\Entitlement\
+	  *EXTRA File 		       0	test.txt
+	                   2	\\HBEUPXAR01\S$\Logs\Mars\
+	                 161	\\HBEUPXAR01\S$\Logs\Profile\
+	                   0	\\HBEUPXAR01\S$\Logs\ShoppingCart\
+	                   1	\\HBEUPXAR01\S$\Logs\ShoppingCart\SVC\
+	                   2	\\HBEUPXAR01\S$\Logs\ShoppingCart\UI\
+	                   4	\\HBEUPXAR01\S$\Logs\W3SVC1\
+	                   2	\\HBEUPXAR01\S$\Logs\W3SVC2\
+	                 253	\\HBEUPXAR01\S$\Logs\W3SVC3\
+	                   2	\\HBEUPXAR01\S$\Logs\W3SVC4\
+	                   2	\\HBEUPXAR01\S$\Logs\W3SVC5\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        12         0        12         0         0         0
+   Files :       432         0       432         0         0         1
+   Bytes :   5.398 g         0   5.398 g         0         0         0
+   Times :   0:00:08   0:00:00                       0:00:00   0:00:08
+
+   Ended : Tue Jan 13 12:37:14 2015

@@ -1,0 +1,119 @@
+
+#**********************************************************************************
+#This uses WinRM
+#Invoke-Command -ComputerName $Server { Stop-Service W3SVC } -credential $Credentials
+#To enable PowerShell Remoting, run the following command 
+powershell Enable-PSRemoting -Force
+
+#To reverse the process and disable
+powershell Disable-PSRemoting -Force
+#**********************************************************************************
+
+#Test to see if Remote Commands Work:
+invoke-Command -ComputerName TMPTBWEB12P -ScriptBlock { hostname }
+invoke-command -ComputerName TMPTBWEB12P -ScriptBlock { get-childitems "c:\" }
+
+**********************************************************************************
+#To get Powershell Version:
+$psversiontable
+
+**********************************************************************************
+#Show a list of running processes on a remote server
+Get-Process -ComputerName TMPTBWEB12P
+
+**********************************************************************************
+#How to verify Execution Policy for Powershell on Remote Machine:
+get-ExecutionPolicy
+
+**********************************************************************************
+#Restart Server 
+Restart-Computer $Server -credential $Credentials -Force
+
+**********************************************************************************
+#Ping server to assure that it it being rebooted
+test-connection -Computername $Server -BufferSize 16 -Count 10
+
+**********************************************************************************
+#File and Directory Manipulation
+
+#Setting the current path
+$CurrentPath = Set-Location
+$CurrentPath = $CurrentPath + "\directoryName"
+$CurrentPath = $CurrentPath + "FileName.txt"
+
+#Create a directory
+mkdir directoryName
+
+#Remove entire directory
+Remove-Item -Recurse -Force $DestDir
+
+#Remove Files with or without exclusions
+Remove-Item c:\scripts\* -recurse
+Remove-Item c:\scripts\* -exclude *.conf
+
+#Rename a directory
+Rename-Item c:\Dir newNameDir
+#Rename a file within a directory
+Rename-Item c:\Dir\file.txt file2.txt
+
+##Push-Location and Pop-Location
+#This is equivalent to CD to directory
+Push-Location "D:\User Data\My Documents\T\Tools\PSTools"
+
+#This CD's back to the original location specified above in "$CurrentPath = Set-Location"
+Pop-Location
+
+**********************************************************************************
+#Mapping a Local Folder as a Windows Accessible Drive
+subst p: $env:programfiles
+
+**********************************************************************************
+#Passing credentials with a command
+$Credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "$MyDomain\$MyUserName", $Mypassword
+
+Invoke-Command -ComputerName $Server -scriptblock {iisreset} -credential $Credentials
+Invoke-Command -ComputerName $Server -scriptblock {iisreset} -credential $MyDomain\$MyUserName
+
+**********************************************************************************
+#NET USE COMMAND
+#Remove network share before connecting to a computer and as a cleanup after task is complete
+net use $RemotePath /delete /y
+
+#How to connect via a file share to a server to establish a connection
+net use $RemotePath /user:$MyDomain\$MyUserName
+net use $RemotePath /user:$MyDomain\$MyUserName password 
+
+**********************************************************************************
+#Using psexec to run Powershell command prior to any other executions on a remote server
+
+#Store credentials prior to running non powershell commands 
+cmdkey.exe /add:$MyDomain /user:$MyUserName /pass:$Mypassword
+.\psexec \\$ServerList -s powershell.exe "Enable-PSRemoting -Force"
+#.\psexec \\$Server -h -d powershell.exe "Enable-PSRemoting -Force"
+
+#Deletes stored credentials after use
+#cmdkey.exe /delete:$Server
+
+#Same implementation done above but the long way without pre storing credentials
+#.\psexec \\$Server -u $MyDomain\$MyUserName -p $Mypassword -h -d powershell.exe "Enable-PSRemoting -Force"
+
+**********************************************************************************
+#Patching
+
+#Get the summary of patches on a particular server
+Get-HotFix -cn localhost | Select-Object HotFixID | FT -AutoSize > Hotfixreport.csv
+
+#Get a summary of patches on a particular server with more details fields
+Get-HotFix -cn localhost | Select-Object PSComputerName,HotFixID,Description,InstalledBy,InstalledOn | FT -AutoSize > Hotfixreport.csv
+
+**********************************************************************************
+#How to comment out block of string:
+
+<#
+
+
+#> 
+**********************************************************************************
+
+
+

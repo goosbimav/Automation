@@ -1,0 +1,130 @@
+#Administer IIS related task on a remote computer
+
+Set-ExecutionPolicy Unrestricted
+
+Import-Module WebAdministration
+
+Get-WebsiteState -Name SeoSiteCluster
+
+
+Import-Module WebAdministration
+$newSite = New-WebSite -name TMPTBWEB12P.prod.corp.com
+Get-WebsiteState -Name TMPTBWEB12P.prod.corp.com
+
+**********************************************************************************
+
+import-module WebAdministration
+
+invoke-command -ComputerName TMPTBWEB12P -ScriptBlock { Add-PSSnapin WebAdministration; test-path "IIS:\AppPools\DefaultAppPool" }
+invoke-command -ComputerName TMPTBWEB12P -ScriptBlock { test-path "IIS:\AppPools\DefaultAppPool" }
+
+**********************************************************************************
+
+#You can use Invoke-Command to invoke the Get-WebAppPoolState cmdlet on the remote machine.
+
+$appPoolStatus = Invoke-Command -ComputerName TMPTBWEB12P {Import-Module WebAdministration; Get-WebAppPoolState DefaultAppPool}
+$appPoolStatus.Value
+
+**********************************************************************************
+
+#Removes a web site:
+Remove-Website -Name $SiteName
+
+#Removes an App Pool:
+Remove-WebAppPool -Name $SiteName
+
+#Removes a Folder:
+Remove-Item $SiteFolder
+
+#Remove any IP Restrictions from specified site:
+Clear-WebConfiguration -Filter /system.webServer/security/ipSecurity -Location $SiteName
+
+**********************************************************************************
+
+#Set Deny All IP's for a specified Site:
+Set-WebConfigurationProperty -Filter /system.webServer/security/ipSecurity -Name allowUnlisted -Value false -Location $SiteName
+
+**********************************************************************************
+
+#Add IP's from a variable to the allowed list:
+Add-WebConfiguration -Filter /system.webserver/security/ipsecurity -Value @{ipAddress="$($ipAddress)";allowed='true'} -Location $SiteName
+
+**********************************************************************************
+
+#Specifies a Variable that would need to utilize double quotes as part of th variable
+"$($ipAddress)"
+
+**********************************************************************************
+
+---
+
+
+THIS WORKS!!!
+
+import-module WebAdministration
+
+$webSiteStatus = Invoke-Command -ComputerName TMPTBWEB12P {Import-Module WebAdministration; Get-WebsiteState SeoSiteCluster}
+$webSiteStatus.value
+
+*************************
+
+This is CLOSER to WORKING:
+
+$webSiteStatus = Invoke-Command -ComputerName '${IP}' -Credential '${CREDENTIAL}' {Import-Module WebAdministration; Get-WebsiteState SeoSiteCluster}
+$webSiteStatus.value
+
+*************************
+
+Run Locally Implementation:
+
+
+$webSiteStatus = Invoke-Command {Import-Module WebAdministration; Get-WebsiteState SeoSiteCluster}
+$webSiteStatus.value
+
+
+---
+
+**********************************************************************************
+
+#Add a VirtualDirectory in a IIS Site: 
+New-WebVirtualDirectory -Site $SiteName1 -Name $VirtualDirName1 -PhysicalPath $VirtualPhysicalPath1
+
+#Create New Web-Application in an IIS Site:
+New-WebApplication -Name $WebAppDirName1 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath1 -ApplicationPool $WebAppAppPool1
+
+
+**********************************************************************************
+
+App Pool Changes:
+
+#Set App Pool Recycle Request Limit
+Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.requests -Value 100000
+
+#Set App Pool Recycle to a specific Time Schedule
+Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.schedule -Value @{value="08:00"}
+
+#Set AppPool Private Memory Limit
+#Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.privateMemory -Value 2000000
+		
+#Set AppPool Recycle to a specific Time Interval (minutes)
+Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name Recycling.periodicRestart.time -Value 3.00:00:00 #Translates to (days.hours:minutes:seconds)
+Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name Recycling.periodicRestart.time -Value 0.00:00:00 #Translates to (days.hours:minutes:seconds)
+
+#Set AppPool Idle Time-out Recycle Value
+Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name processModel.idleTimeOut -value '00:00:00'
+
+#Set AppPool Shutdown Time Limit Value
+Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name processModel.shutdownTimeLimit -value '24.00:00:00' #Translates to (days.hours:minutes:seconds)
+
+#Set AppPool Load User Profile
+$appPool.processModel.loadUserProfile = $true	#Set AppPool Load User Profile
+
+#Set AppPool Recycle to a specific Time Schedule
+Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.schedule -Value @{value="06:00"}
+New-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.schedule -Value @{value="18:00"} #This sets an additional time value
+
+#Enable 32-bit Application Setting
+$appPool.enable32BitAppOnWin64 = "True"		
+
+**********************************************************************************
+

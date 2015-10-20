@@ -1,0 +1,3 @@
+
+#To copy hosts files to remote servers while pulling file from git
+ssh-agent bash -c 'ssh-add ../github_build-macmillan; git pull'

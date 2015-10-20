@@ -1,0 +1,68 @@
+OldValue,NewValue
+"stage-","test-"
+"staging-","test-"
+"_STAGE","_TEST"
+"-stage","-test"
+"-staging","-test"
+"_staging","_test"
+"/staging/","/test/"
+environment="staging",environment="test"
+environmentName="staging",environmentName="test"
+value="staging",value="test"
+#MISC
+"cxCat ICG Staging","cxCat ICG Test"
+"DSS Staging Notification","DSS Test Notification"
+"cxcat.staging","cxcat.test"
+#BACKEND VHOST CALLS
+"ServerAlias agencyadmin.icg","ServerAlias test-agencyadmin.icg"
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+#REVERSE DAMAGE
+"agentportal_TEST.s3.amazonaws.com","agentportal_STAGE.s3.amazonaws.com"
+"https://test-services.icg360.org/ixconfig/ics/staging/","https://stage-services.icg360.org/ixconfig/ics/staging/"
+"https://ics-test-services.arc/ixdirectory/","https://test-services.icg360.org/ixdirectory/"
+#VM HOST NAMES
+"anderson","Amarillo"
+"alston","bravo"
+"aaron","cascade"
+#UNIVERSAL VHOST IP's
+"172.19.140.30","172.19.140.70"
+"172.19.140.31","172.19.140.99"
+"172.19.140.32","172.19.140.97"
+"172.19.140.33","172.19.140.98"
+"172.19.140.35","172.19.140.76"
+"172.19.140.36","172.19.140.77"
+"172.19.140.38","172.19.140.78"
+"172.19.140.39","172.19.140.79"
+"172.19.140.72","172.19.140.97"
+"172.19.140.73","172.19.140.98"
+#DSS VHOST IP's
+"172.19.140.40","172.19.140.80"
+"172.19.140.41","172.19.140.81" 
+"172.19.140.42","172.19.140.82"
+"172.19.140.43","172.19.140.83"
+"172.19.140.44","172.19.140.84"
+"172.19.140.45","172.19.140.85"
+"172.19.140.46","172.19.140.86"
+"172.19.140.47","172.19.140.87"
+#SAGESURE VHOST IP's
+"172.19.140.50","172.19.140.88"
+"172.19.140.51","172.19.140.89"
+"172.19.140.52","172.19.140.90"
+"172.19.140.53","172.19.140.92"
+"172.19.140.20","172.19.140.93"
+"172.19.140.21","172.19.140.94"
+"172.19.140.22","172.19.140.95"
+"172.19.140.23","172.19.140.96"
+#LAST ROUND CHANGES
+#"staging","test"
+
+ 
+
+
+
+
+
+
+
+
+  

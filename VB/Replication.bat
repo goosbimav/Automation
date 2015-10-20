@@ -1,0 +1,1 @@
+robocopy \\tmpwebeng01\e$ \\byrontemp2\e$ * /e /XO /r:1 /w:1 /FFT 

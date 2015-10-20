@@ -1,0 +1,55 @@
+OldValue,NewValue
+"va-","dr-"
+#UNIVERSAL SERVICES ROUTER
+"services.icg360.com","dr-services.icg360.com"
+"dr-dr-services.icg360.com","dr-services.icg360.com"
+#BACKEND VHOST CALLS
+"ServerName ixconfig.icg","ServerName dr-ixconfig.icg"
+"ServerName ixrelay.icg","ServerName dr-ixrelay.icg"
+"ServerName ixprofiler.icg","ServerName dr-ixprofiler.icg"
+"ServerAlias dr-agencyadmin.icg360.com agencyadmin.icg","ServerAlias dr-agencyadmin.icg360.com dr-agencyadmin.icg"
+"ServerAlias dr-central.icg360.com central.icg","ServerAlias dr-central.icg360.com dr-central.icg"
+"ServerName ixconfig.icg","ServerName dr-ixconfig.icg"
+"ServerAlias dr-ixdirectory.icg360.com ixdirectory.icg","ServerAlias dr-ixdirectory.icg360.com dr-ixdirectory.icg" 
+"ServerAlias dr-policycentral.icg360.com policycentral.icg","ServerAlias dr-policycentral.icg360.com dr-policycentral.icg" 
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+"https://ixdirectory.ics360.com","https://dr-ixdirectory.icg360.com"
+"https://ixdirectory.icg360.com","https://dr-ixdirectory.icg360.com"
+"http://ixconfig","http://dr-ixconfig"
+"http://ixprofiler","http://dr-ixprofiler"
+"http://ixlibrary","http://dr-ixlibrary"
+"http://ixdoc","http://dr-ixdoc"
+"http://ixvocab","http://dr-ixvocab"
+"http://cxcat","http://dr-cxcat"
+"http://insightcentral","http://dr-insightcentral"
+"http://policycentral","http://dr-policycentral"
+"http://ixlog.icg","http://dr-ixlog.icg"
+"http://pxserver.dss","http://dr-pxserver.dss"
+"http://ixrelay.dss","http://dr-ixrelay.dss"
+"http://agencyadmin","http://dr-agencyadmin"
+"http://cat-mgr","http://dr-cat-mgr"
+"http://mortgageemanager","http://dr-mortgageemanager"
+#REVERSE DAMAGE
+"https://fsic-dr-services.icg360.com/","https://fsic-services.icg360.com/"
+#SAGSEURE SERVICES ROUTER
+"services.sagesure.com","dr-services.sagesure.com"
+"dr-dr-services.sagesure.com","dr-services.sagesure.com"
+#VM HOST NAMES
+"zeus","jupiter"
+#DSS BALANCER NODE MEMBER IP's
+"172.19.110.62","172.19.110.102"
+"172.19.110.64","172.19.110.104"
+"172.19.110.77","172.19.110.106"
+#UNIVERSAL VHOST IP's
+"172.19.110.52","172.19.110.90" 
+"172.19.110.53","172.19.110.91"
+"172.19.110.74","172.19.110.92" 
+"172.19.110.69","172.19.110.93"
+
+
+
+
+
+
+
+  

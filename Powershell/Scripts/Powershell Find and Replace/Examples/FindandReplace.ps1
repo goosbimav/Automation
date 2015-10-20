@@ -1,0 +1,28 @@
+#script variables
+$filePath     = 'D:\E-stuff\Automation\Powershell\Scripts\Powershell Find and Replace\Examples\Source'
+$processFiles = Get-ChildItem -Exclude *.bak *.log -Filter *.txt *.ini -Recurse -Path $filePath
+
+$query1        = 'aaa aaa'
+$query2       = 'bbb bbb'
+$replace      = 'ccc'
+
+#script begin
+foreach ( $file in $processFiles ) {
+    #Pre-Processing | backup the file for archival
+    $file | Copy-Item -Destination "$file.bak"
+
+    $arrayData = Get-Content $file
+    for ($i=0; $i -lt $arrayData.Count; $i++)
+    {
+        if ( $arrayData[$i] -match $query1 ) {
+            
+                $arrayData[$i+1] = $arrayData[$i+1].Replace($query2,$replace)
+        }
+        else {
+            #Catch if the first query1 isn't matched.
+        }
+    }
+
+    #Overwrites the original text file that was being processed
+    $arrayData | Out-File $file -Force
+}

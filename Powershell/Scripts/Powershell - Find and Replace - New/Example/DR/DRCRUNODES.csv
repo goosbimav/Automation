@@ -1,0 +1,55 @@
+OldValue,NewValue
+"va-","dr-"
+"Jadr-","Java-"
+#BACKEND VHOST CALLS
+"ServerName agentportal","ServerName dr-agentportal"
+"ServerAlias agentportal","ServerAlias dr-agentportal"
+"ServerName ixdoc","ServerName dr-ixdoc"
+"ServerName ixlibrary","ServerName dr-ixlibrary"
+"ServerAlias ixlibrary","ServerAlias dr-ixlibrary"
+"ServerName ixlogic","ServerName dr-ixlogic"
+"ServerAlias ixlogic","ServerAlias dr-ixlogic"
+"ixlogic1.cru-4.opd.com","dr-ixlogic1.cru-4.opd.com"
+"ixlogic2.cru-4.opd.com","dr-ixlogic2.cru-4.opd.com"
+"ixlogic3.cru-4.opd.com","dr-ixlogic3.cru-4.opd.com"
+"ixlogic4.cru-4.opd.com","dr-ixlogic4.cru-4.opd.com"
+"ServerName ixprofiler","ServerName dr-ixprofiler"
+"ServerAlias ixprofiler","ServerAlias dr-ixprofiler"
+"ServerName mxadmin","ServerName dr-mxadmin"
+"ServerAlias mxadmin","ServerAlias dr-mxadmin"
+"ServerName mxserver","ServerName dr-mxserver"
+"ServerName pxcentral","ServerName dr-pxcentral"
+"ServerAlias pxcentral","ServerAlias dr-pxcentral"
+"ServerName pxpay","ServerName dr-pxpay"
+"ServerAlias pxpay","ServerAlias dr-pxpay"
+"ServerName pxpower","ServerName dr-pxpower"
+"ServerAlias pxpower","ServerAlias dr-pxpower"
+"ServerName pxprogram","ServerName dr-pxprogram"
+"ServerName pxquotingengine","ServerName dr-pxquotingengine"
+"ServerName pxserver","ServerName dr-pxserver"
+"ServerAlias pxserver","ServerAlias dr-pxserver"
+"pxserver1.cru-4.opd.com","dr-pxserver1.cru-4.opd.com"
+"pxserver2.cru-4.opd.com","dr-pxserver2.cru-4.opd.com"
+"pxserver3.cru-4.opd.com","dr-pxserver3.cru-4.opd.com"
+"pxserver4.cru-4.opd.com","dr-pxserver4.cru-4.opd.com"
+"ServerName cru_policycentral","ServerName dr-cru_policycentral"
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+#VM HOST NAMES
+"aphrodite","venus"
+#CRU VHOST NODE IP's
+"172.19.110.20","172.19.110.112"
+"172.19.110.21","172.19.110.113"
+"172.19.110.22","172.19.110.114"
+"172.19.110.23","172.19.110.115"
+"172.19.110.24","172.19.110.116"
+"172.19.110.25","172.19.110.117"
+"172.19.110.26","172.19.110.118"
+"172.19.110.27","172.19.110.119"
+
+
+
+
+
+
+
+  

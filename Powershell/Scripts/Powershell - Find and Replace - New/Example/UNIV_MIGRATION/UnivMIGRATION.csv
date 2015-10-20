@@ -1,0 +1,33 @@
+OldValue,NewValue
+"https://ixdirectory.ics360.com","https://ixdirectory.icg360.com"
+"https://ixlog.ics360.com","https://ixlog.icg360.com"
+"https://services.ics360.com/ixlog","https://services.icg360.com/ixlog"
+"https://services.ics360.com/ixrelay","https://services.icg360.com/ixrelay"
+"https://services.ics360.com/ixvocab","https://services.icg360.com/ixvocab"
+"https://central.ics360.com","https://central.icg360.com"
+"https://services.ics360.com/ixprofiler","https://services.icg360.com/ixprofiler"
+"https://cxserver.ics360.com","https://cxserver.icg360.com"
+"https://services.ics360.com/ixlibrary","https://services.icg360.com/ixlibrary"
+"http://vocab.ix.ics360.com","https://services.icg360.com/ixvocab"
+#ONLY RUN ON VIRGINIA CONFIGS
+#"insightappuser","insightappuser_prod"
+#"insightappuser_prod_prod","insightappuser_prod"
+#"_prod_prod","_prod"
+#"hixson40","Free!Beer"
+#MISC
+#BACKEND VHOST CALLS
+#INTERNAL HTTP CALLS USED BY FRONT ENDS
+#REVERSE DAMAGE
+
+
+
+ 
+
+
+
+
+
+
+
+
+  

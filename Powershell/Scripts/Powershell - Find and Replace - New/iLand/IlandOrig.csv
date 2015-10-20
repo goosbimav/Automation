@@ -1,0 +1,78 @@
+OldValue,NewValue
+#-GLOBAL CALLS-
+"cartsvc.macmillanhighered.com","iqa.cartsvc.macmillanhighered.com"
+"macmillanhighered.com","http://iqa.macmillanhighered.com"
+"bcs.bfwpub.com","iqa.bcs.bfwpub.com"
+"activation.macmillanhighered.com","iqa.activation.macmillanhighered.com"
+"coresvcs.bfwpub.com","iqa.coresvcs.bfwpub.com"
+#-SMTP-
+"techsupport@bfwpub.com","webstaff@bfwpub.com"
+"Production","Staging"
+
+#CONNECTION STRINGS VALUES
+#-iLogin220Web-
+"macmillanhighered.com","http://iqa.macmillanhighered.com"
+"bcs.bfwpub.com","iqa.bcs.bfwpub.com"
+"activation.macmillanhighered.com","iqa.activation.macmillanhighered.com"
+"Production","Staging"
+"coresvcs.bfwpub.com","iqa.coresvcs.bfwpub.com"
+"mfcfulfillment.macmillanhighered.com","stg-mfcfulfillment.macmillanhighered.com"
+"Database=Onyx6","Database=Onyx6"
+"User ID=OnyxEASSQL","User ID=OnyxEASSQL"
+"Password=Ilsole4prod","Password=Ilsole4prod"
+"Server=192.168.223.122","Server=192.168.223.122"
+
+#-InstructorServices-
+"techsupport@bfwpub.com","webstaff@bfwpub.com"
+"bcs.bfwpub.com","iqa.bcs.bfwpub.com"
+"activation.macmillanhighered.com","iqa.activation.macmillanhighered.com"
+"Production","Staging"
+"Database=Onyx6","Database=Onyx6"
+"User ID=OnyxEASSQL","User ID=OnyxEASSQL"
+"Password=Ilsole4prod","Password=Ilsole4prod"
+"Server=db19\db19,1433","Server=db19\db19,1433"
+
+#-xxx-connect-ra-
+"SERVER=VSBFWDATASTG\SQL2000","SERVER=VSBFWDATASTG\SQL2000"
+"DATABASE=BFWUsers","DATABASE=BFWUsers"
+"UID=sa","UID=sa"
+"PWD=ilsole","PWD=ilsole"
+
+#-CartSVC Web-
+"Data Source=DB17\db17","Data Source=DB17\db17"
+"Initial Catalog=BFWUsers","Initial Catalog=BFWUsers"
+"User Id=BFWUsers","User Id=BFWUsers"
+"Password=(BFW33)","Password=(BFW33)"
+
+#-eCommerce Web-"
+"Data Source=DB17\db17","Data Source=DB17\db17"
+"Initial Catalog=bfwusers","Initial Catalog=bfwusers"
+"Persist Security Info=True","Persist Security Info=True"
+"User ID=BFWUsers","User ID=BFWUsers"
+"Password=(BFW33)","Password=(BFW33)"
+
+#-Entitlement Web-
+"Data Source=DB17","Data Source=DB17"
+"Catalog=bfwusers","Catalog=bfwusers"
+"uid=BFWUsers","uid=BFWUsers"
+"pwd=(BFW33)","pwd=(BFW33)"
+"Data Source=DB17","Data Source=DB17"
+"Initial Catalog=BrainHoneyDLAP_Mars","Initial Catalog=BrainHoneyDLAP_Mars"
+"uid=marsdlaplogin","uid=marsdlaplogin"
+"pwd=Mar$DLAP!","pwd=Mar$DLAP!"
+
+#-MARS Web-
+"Data Source=ReleaseSQLServer","Data Source=ReleaseSQLServer"
+"Initial Catalog=MyReleaseDB","Initial Catalog=MyReleaseDB"
+"Integrated Security=True","Integrated Security=True"
+
+#-Profile Web-
+"Data Source=DB17\db17","Data Source=DB17\db17"
+"Initial Catalog=bfwusers","Initial Catalog=bfwusers"
+"uid=BFWUsers","uid=BFWUsers"
+"pwd=(BFW33)","pwd=(BFW33)"
+"data source=DB17\db17","data source=DB17\db17"
+"Initial Catalog=BFWUsers","Initial Catalog=BFWUsers"
+"User Id=BFWUsers","User Id=BFWUsers"
+"Password=(BFW33)","Password=(BFW33)"
+

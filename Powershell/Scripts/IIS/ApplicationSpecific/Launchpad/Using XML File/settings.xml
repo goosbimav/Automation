@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	<site1>
+		<name>PX</name>
+        <appPool>PX</appPool>
+        <appPoolVersion>v4.0</appPoolVersion>
+		<HostHeader>aws.macmillanhighered.com</HostHeader>
+		<FolderName>DeployFolder</FolderName>
+		<PhysicalPath>C:\Deployments\AWS\PlatformX\</PhysicalPath>
+	</site1>
+	<site2>
+		<name>PXVideoTools</name>
+        <appPool>PXVideoTools</appPool>
+        <appPoolVersion>v4.0</appPoolVersion>
+		<HostHeader>aws.video.macmillanhighered.com</HostHeader>
+		<FolderName>DeployFolder</FolderName>
+		<PhysicalPath>C:\Deployments\AWS\Macmillan.AVP.Web\</PhysicalPath>
+	</site2>
+</settings>

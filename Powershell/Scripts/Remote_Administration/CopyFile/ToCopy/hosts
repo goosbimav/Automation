@@ -1,0 +1,129 @@
+127.0.0.1		localhost.localdomain localhost
+::1		localhost6.localdomain6 localhost6
+192.168.228.30  vsutil01
+
+## Mappings from Nginx Virtual host
+10.9.80.156 iQA.bedfordstmartins.com
+10.9.80.157 iQA.macmillanhighered.com
+10.9.80.154 iQA.whfreeman.com
+10.9.80.155 iQA.worthpublishers.com
+10.9.80.157 iQA.highschool.bfwpub.com
+
+
+### WE decited not to use this format .. these can be removed.
+#10.9.82.45 iQA.www.bedfordstmartins.com
+#10.9.82.45 iQA.www.macmillanhighered.com
+#10.9.82.45 iQA.www.whfreeman.com
+#10.9.82.45 iQA.www.worthpublishers.com
+#10.9.82.45 iqa.www.highschool.bfwpub.com
+
+10.9.80.140 iQA.ebooks.bfwpub.com
+10.9.80.128 iQA.bcs.bfwpub.com
+10.9.80.124 iQA.raws.bfwpub.com  iqa-raws.bfwpub.com
+10.9.80.121 iQA.ra.bfwpub.com
+
+## END Mappings from Nginx Virtual host
+
+
+###  VIPs to be done 
+# HBEUPXBM01.eu.hbpna.com HBEUPXBM02.eu.hbpna.com VIP iqa.pxsearch.bfwpub.com
+10.9.80.61 iqa.pxsearch.bfwpub.com
+
+#HBEUPXSVC01.eu.hbpna.com HBEUPXSVC02.eu.hbpna.com =iqa.px.bfwpub.com
+10.9.80.151 iqa.px.bfwpub.com
+
+10.9.80.147 iQA.dlap.bfwpub.com
+#10.9.82.39 10.9.82.40 10.9.82.41 10.9.82.42 = iQA.dlap.bfwpub.com
+
+10.9.80.245 iqa.activation.macmillanhighered.com
+# 10.9.82.70 10.9.82.72 iqa.activation.macmillanhighered.com
+
+#"learningcurve.bfwpub.com        IN A 192.168.224.55"
+
+#ONYX
+10.9.80.243 iQA.customers.sasmp.com
+
+# these should be CNAMEs to the above VIP
+10.9.80.83 iqa.cartsvc.macmillanhighered.com
+10.9.80.82 iqa.cart.macmillanhighered.com
+10.9.80.236 iqa.coresvcs.bfwpub.com 
+
+10.9.82.106 iqa.mfcfulfillment.macmillanhighered.com
+10.9.80.146 root.iQA.brainhoney.bfwpub.com
+10.9.80.146 pxmigration.iqa.brainhoney.bfwpub.com
+
+### UNBOUND ###
+#This need a wildcard so it is being handled by unbound
+
+#10.9.82.43 root.iQA.brainhoney.bfwpub.com
+#HBEUPXweb01.eu.hbpna.com HBEUPXweb02.eu.hbpna.com = root.iQA.brainhoney.bfwpub.com
+
+### END UNBOUND ######
+
+#### VIPs END
+
+
+
+10.9.82.67	HBEUCOUCH01.eu.hbpna.com	HBEUCOUCH01
+10.9.82.68	HBEUCOUCH02.eu.hbpna.com	HBEUCOUCH02
+10.9.82.69	HBEUCOUCH03.eu.hbpna.com	HBEUCOUCH03
+10.9.82.92	HBEUCrunchit.eu.hbpna.com	HBEUCrunchit
+10.9.82.39	HBEUDLAP01.eu.hbpna.com	HBEUDLAP01
+10.9.82.40	HBEUDLAP02.eu.hbpna.com	HBEUDLAP02
+10.9.82.41	HBEUDLAP03.eu.hbpna.com	HBEUDLAP03
+10.9.82.42	HBEUDLAP04.eu.hbpna.com	HBEUDLAP04
+10.9.82.90	HBEUDLAPTM01.eu.hbpna.com	HBEUDLAPTM01
+10.9.82.91	HBEUDLAPTM02.eu.hbpna.com	HBEUDLAPTM02
+10.9.82.84	HBEULamp03.eu.hbpna.com	HBEULamp03
+10.9.82.85	HBEULamp04.eu.hbpna.com	HBEULamp04
+10.9.82.86	HBEULAMP05.eu.hbpna.com	HBEULAMP05
+10.9.82.87	HBEULAMP06.eu.hbpna.com	HBEULAMP06
+10.9.82.45	HBEUNGX01.eu.hbpna.com	HBEUNGX01
+10.9.82.49	HBEUNGX02.eu.hbpna.com	HBEUNGX02
+10.9.82.64	HBEUPXAFAB01.eu.hbpna.com	HBEUPXAFAB01
+10.9.82.65	HBEUPXAFAB02.eu.hbpna.com	HBEUPXAFAB02
+10.9.82.66	HBEUPXAFAB03.eu.hbpna.com	HBEUPXAFAB03
+10.9.82.70	HBEUPXAR01.eu.hbpna.com	HBEUPXAR01
+10.9.82.72	HBEUPXAR02.eu.hbpna.com	HBEUPXAR02
+10.9.82.11	HBEUPXBCS03.eu.hbpna.com	HBEUPXBCS03
+10.9.82.13	HBEUPXBCS04.eu.hbpna.com	HBEUPXBCS04
+10.9.82.15	HBEUPXBCS05.eu.hbpna.com	HBEUPXBCS05
+10.9.82.17	HBEUPXBCS06.eu.hbpna.com	HBEUPXBCS06
+10.9.82.19	HBEUPXBCS07.eu.hbpna.com	HBEUPXBCS07
+10.9.82.21	HBEUPXBCS08.eu.hbpna.com	HBEUPXBCS08
+10.9.82.23	HBEUPXBCS09.eu.hbpna.com	HBEUPXBCS09
+10.9.82.25	HBEUPXBCS10.eu.hbpna.com	HBEUPXBCS10
+10.9.82.27	HBEUPXBCS11.eu.hbpna.com	HBEUPXBCS11
+10.9.82.29	HBEUPXBCS12.eu.hbpna.com	HBEUPXBCS12
+10.9.82.31	HBEUPXBCS13.eu.hbpna.com	HBEUPXBCS13
+10.9.82.33	HBEUPXBCS14.eu.hbpna.com	HBEUPXBCS14
+10.9.82.35	HBEUPXBCS15.eu.hbpna.com	HBEUPXBCS15
+10.9.82.37	HBEUPXBCS16.eu.hbpna.com	HBEUPXBCS16
+10.9.82.88	HBEUPXBM01.eu.hbpna.com	HBEUPXBM01
+10.9.82.89	HBEUPXBM02.eu.hbpna.com	HBEUPXBM02
+10.9.82.53	HBEUPXSOLRM01.eu.hbpna.com	HBEUPXSOLRM01
+10.9.82.54	HBEUPXSOLRM02.eu.hbpna.com	HBEUPXSOLRM02
+10.9.82.55	HBEUPXSOLRM03.eu.hbpna.com	HBEUPXSOLRM03
+10.9.82.56	HBEUPXSOLRS01.eu.hbpna.com	HBEUPXSOLRS01
+10.9.82.57	HBEUPXSOLRS02.eu.hbpna.com	HBEUPXSOLRS02
+10.9.82.58	HBEUPXSOLRS03.eu.hbpna.com	HBEUPXSOLRS03
+10.9.82.59	HBEUPXSOLRS04.eu.hbpna.com	HBEUPXSOLRS04
+10.9.82.60	HBEUPXSOLRS05.eu.hbpna.com	HBEUPXSOLRS05
+10.9.82.61	HBEUPXSOLRS06.eu.hbpna.com	HBEUPXSOLRS06
+10.9.82.62	HBEUPXSVC01.eu.hbpna.com	HBEUPXSVC01
+10.9.82.63	HBEUPXSVC02.eu.hbpna.com	HBEUPXSVC02
+10.9.82.43	HBEUPXweb01.eu.hbpna.com	HBEUPXweb01
+10.9.82.44	HBEUPXweb02.eu.hbpna.com	HBEUPXweb02
+10.9.82.74	HBEURA01.eu.hbpna.com	HBEURA01
+10.9.82.79	HBEURA02.eu.hbpna.com	HBEURA02
+10.9.81.175 HBEUPXSQLCL01.eu.hbpna.com HBEUPXSQLCL01
+#10.9.81.170 HBEUPXSQLCL01.eu.hbpna.com HBEUPXSQLCL01
+10.9.81.170 HBEUPXSQL01.eu.hbpna.com HBEUPXSQL01
+10.9.81.17 HBEURASQL01.eu.hbpna.com HBEURASQL01
+10.9.82.97 HBEUONYX01.eu.hbpna.com	HBEUONYX01
+10.9.82.98 HBEUONYX02.eu.hbpna.com	HBEUONYX02
+
+### FILESHARE ###
+10.9.81.31 eu-man-cifs01
+
+
