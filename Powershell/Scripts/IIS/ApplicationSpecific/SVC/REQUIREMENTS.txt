@@ -1,0 +1,5 @@
+As of 10/16/2015:
+
+1) Install IIS per deploy Script: Install_IIS7 (*using .NET 4.5*)
+2) Utilize the following script to create the sites: CreateiSampleSites.ps1
+

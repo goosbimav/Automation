@@ -1,0 +1,4 @@
+#Add an AD Securiy Group to Active Directory
+net localgroup 'Administrators' /add 'HBPNA\MHE Ops'
+#**********************************************************************************
+

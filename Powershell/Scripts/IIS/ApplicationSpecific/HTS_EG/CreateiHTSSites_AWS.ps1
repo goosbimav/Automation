@@ -26,12 +26,6 @@ $HostHeader1 = ""
 $FolderName1 = "Empty"
 $PhysicalPath1 = "S:\Web\$FolderName"
 #-------
-#ApplicationSite1 Parameters
-$WebAppDirName1 = "api"
-$WebAppPhysicalPath1 = "S:\Deployments\AWS\PXWebAPI\"
-$WebAppAppPool1 = "PXWebAPI"
-$WebAppAppPoolVersion1 = "v4.0"
-#-------
 #ApplicationSite2 Parameters
 $WebAppDirName2 = "PxEG"
 $WebAppPhysicalPath2 = "S:\Deployments\AWS\PxEG"
@@ -92,45 +86,6 @@ Stop-WebSite 'Default Web Site'
 		New-Website -Name $SiteName1 -Port 80 -IPAddress "*" -HostHeader $HostHeader1 -ApplicationPool $SiteName1 -PhysicalPath $PhysicalPath1
 	}
 #---------------------------------------------------------------------
-#ApplicationSite1 - "api"
-	#Check to see if folder path exists. If it does not create it. 
-	If(!(Test-Path $WebAppPhysicalPath1))
-	{
-		New-Item -ItemType directory -Path $WebAppPhysicalPath1 #-confirm
-	}
-	#Check to see if the AppPool exits. If it does not exist then add a completely new AppPool
-	if(!(Test-Path ("IIS:\AppPools\" + $WebAppAppPool1)))
-	{
-		#Name the app pool the same as the site name
-		$appPool = New-Item ("IIS:\AppPools\" + $WebAppAppPool1)
-
-	#Display Default AppPool Settings
-		#"AppPool = " + $appPool
-		#"UserName = " + $appPool.processModel.userName
-		#"Password = " + $appPool.processModel.password
-		#"Runtime = " + $appPool.managedRuntimeVersion
-
-	#Set AppPool Settings	
-		#$appPool.processModel.identityType = "SomeUser" #Specify User here or use numbers (1-4)
-		#$appPool.processModel.username = "someUser"
-		#$appPool.processModel.password = "somePassword"
-		$appPool.managedRuntimeVersion = $WebAppAppPoolVersion1
-		#$appPool.managedPipeLineMode = "Integrated"
-		$appPool | Set-Item
-		
-		
-	#Change Advanced AppPool Settings
-		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $WebAppAppPool1) -Name Recycling.periodicRestart.time -Value 09:00:00 #Translates to (days.hours:minutes:seconds)
-		
-	}
-	#Check to see if the Site exits. If it does not exist then add a completely new Site
-	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool1)))
-	{
-		#Create New Web-Application
-		New-WebApplication -Name $WebAppDirName1 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath1 -ApplicationPool $WebAppAppPool1
-	}
-#-------	
 #ApplicationSite2 - "PxEG"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $WebAppPhysicalPath2))

@@ -19,50 +19,56 @@ $ServerSyncPath = "S:\Logs\ServerSync\"
 
 #---------------------------------------------------------------------
 #Site1 Parameters
-$SiteName1 = "PX" 
+$SiteName1 = "activation.macmillanhighered.com" 
 $AppPoolName1 = $SiteName1
 $AppPoolVersion1 = "v4.0" #Entered as (v2.0 or v4.0)
-$HostHeader1 = "aws-macmillanhighered.com"
-$HostHeader1a = "aws-whfreeman.com"
-$HostHeader1b = "aws-worthpublishers.com"
-$HostHeader1c = "aws-bedfordstmartins.com"
-$HostHeader1d = "aws-highschool.bfwpub.com"
+$HostHeader1 = "aws-activation.macmillanhighered.com"
 $FolderName1 = "DeployFolder"
-$PhysicalPath1 = "S:\Deployments\AWS\PlatformX\$FolderName"
+$PhysicalPath1 = "S:\deployments\AWS\MarsUI\"
+
+#Site2 Parameters
+$SiteName2 = "cart.macmillanhighered.com" 
+$AppPoolName2 = $SiteName2
+$AppPoolVersion2 = "v4.0" # Entered as (v2.0 or v4.0)
+$HostHeader2 = "aws-cart.macmillanhighered.com"
+$FolderName2 = "DeployFolder"
+$PhysicalPath2 = "S:\deployments\AWS\ShoppingCartUI\"
+
+#Site3 Parameters
+$SiteName3 = "coresvcs.bfwpub.com" 
+$AppPoolName3 = $SiteName3
+$AppPoolVersion3 = "v4.0" # Entered as (v2.0 or v4.0)
+$HostHeader3 = "aws-coresvcs.bfwpub.com"
+$FolderName3 = "DeployFolder"
+$PhysicalPath3 = "S:\EmptySite\"
 #-------
 #ApplicationSite1 Parameters
-$WebAppDirName1 = "BFWGlobal"
-$WebAppPhysicalPath1 = "S:\Deployments\AWS\BFWGlobal"
-$WebAppAppPool1 = $WebAppDirName1
+$WebAppDirName1 = "eCommerce"
+$WebAppPhysicalPath1 = "S:\deployments\AWS\eCommerceService\"
+$WebAppAppPool1 = $SiteName3
 $WebAppAppPoolVersion1 = "v4.0"
 #-------
 #ApplicationSite2 Parameters
-$WebAppDirName2 = "hts"
-$WebAppPhysicalPath2 = "S:\Deployments\AWS\QuestionEditor"
-$WebAppAppPool2 = $SiteName1 # PX
+$WebAppDirName2 = "entitlement"
+$WebAppPhysicalPath2 = "S:\deployments\AWS\EntitlementService.Gateway\"
+$WebAppAppPool2 = $SiteName3
 $WebAppAppPoolVersion2 = "v4.0"
 #-------
 #ApplicationSite3 Parameters
-$WebAppDirName3 = "secure"
-$WebAppPhysicalPath3 = "S:\Deployments\AWS\PlatformX"
-$WebAppAppPool3 = $SiteName1 # PX
-$WebAppAppPoolVersion3 = "v4.0"
-#-------
-#ApplicationSite4 Parameters
-$WebAppDirName4 = "xbook"
-$WebAppPhysicalPath4 = "S:\Deployments\AWS\xbook"
-$WebAppAppPool4 = $SiteName1 # PX
-$WebAppAppPoolVersion4 = "v4.0"
+$WebAppDirName3 = "profile"
+$WebAppPhysicalPath3 = "S:\deployments\AWS\CW.ProfileService\"
+$WebAppAppPool3 = $SiteName3
+$WebAppAppPoolVersion2 = "v4.0"
 #-------
 
+#Site4 Parameters
+$SiteName4 = "cartsvc.macmillanhighered.com" 
+$AppPoolName4 = $SiteName4
+$AppPoolVersion4 = "v4.0" # Entered as (v2.0 or v4.0)
+$HostHeader4 = "aws-cartsvc.macmillanhighered.com"
+$FolderName4 = "DeployFolder"
+$PhysicalPath4 = "S:\deployments\AWS\CartServices\"
 
-#Site2 Parameters
-$SiteName2 = "PXVideoTools" 
-$AppPoolName2 = $SiteName2
-$AppPoolVersion2 = "v4.0" # Entered as (v2.0 or v4.0)
-$HostHeader2 = "aws-video.macmillanhighered.com"
-$FolderName2 = "DeployFolder"
-$PhysicalPath2 = "S:\Deployments\AWS\PlatformX\$FolderName"
 #---------------------------------------------------------------------
 
 #This can be used as a PAUSE to step through the script
@@ -74,7 +80,7 @@ Stop-WebSite 'Default Web Site'
 
 #---------------------------------------------------------------------
 #---------------------------------------------------------------------
-#Site1 - "PX"
+#Site1 - "activation.macmillanhighered.com"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $PhysicalPath1)){
 		New-Item -ItemType directory -Path ($PhysicalPath1 + $FolderName1) #-confirm
@@ -100,11 +106,20 @@ Stop-WebSite 'Default Web Site'
 		$appPool | Set-Item
 		
 	#Change Advanced AppPool Settings
+		#Set AppPool Recycle Request Limit
+		#Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.requests -Value 100000
+		
+		#Set AppPool Private Memory Limit
+		#Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.privateMemory -Value 2000000
+		
 		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.time -Value 0.00:00:00 #Translates to (days.hours:minutes:seconds)
+		#Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.time -Value 0.00:00:00 #Translates to (days.hours:minutes:seconds)
+		
+		#Set AppPool Idle Time-out Recycle Value
+		#Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name processModel.idleTimeOut -value '00:00:00'
 		
 		#Set AppPool Recycle to a specific Time Schedule
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.schedule -Value @{value="08:00"}
+		#Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.schedule -Value @{value="08:00"}
 		
 	}	
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
@@ -112,14 +127,9 @@ Stop-WebSite 'Default Web Site'
 	{	
 		#Create site and add default host header
 		New-Website -Name $SiteName1 -Port 80 -IPAddress "*" -HostHeader $HostHeader1 -ApplicationPool $SiteName1 -PhysicalPath $PhysicalPath1
-		#Add the additional host headers
-		New-WebBinding -Name $SiteName1 -Port 80 -IPAddress "*"  -HostHeader $HostHeader1a
-		New-WebBinding -Name $SiteName1 -Port 80 -IPAddress "*"  -HostHeader $HostHeader1b
-		New-WebBinding -Name $SiteName1 -Port 80 -IPAddress "*"  -HostHeader $HostHeader1c
-		New-WebBinding -Name $SiteName1 -Port 80 -IPAddress "*"  -HostHeader $HostHeader1d
 	}
 #-------	
-#Site2 - "PXVideoTools"
+#Site2 - "cart.macmillanhighered.com"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $PhysicalPath2))
 	{
@@ -149,26 +159,55 @@ Stop-WebSite 'Default Web Site'
 		#Set AppPool Recycle Request Limit
 		#Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.requests -Value 100000
 		
-		#Set AppPool Private Memory Limit
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name recycling.periodicRestart.privateMemory -Value 2000000
-		
-		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name Recycling.periodicRestart.time -Value 3.00:00:00 #Translates to (days.hours:minutes:seconds)
-		
-		#Set AppPool Idle Time-out Recycle Value
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name processModel.idleTimeOut -value '00:00:00'
-		
-		#Set App Pool Recycle to a specific Time Schedule
-		#Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName2) -Name Recycling.periodicRestart.schedule -Value @{value="08:00"}
-		
 	}	
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
 	if((Test-Path ("IIS:\AppPools\" + $AppPoolName2)))
 	{
 		New-Website -Name $SiteName2 -Port 80 -IPAddress "*" -HostHeader $HostHeader2 -ApplicationPool $SiteName2 -PhysicalPath $PhysicalPath2
 	}	
-#---------------------------------------------------------------------
-#ApplicationSite1 - "BFWGlobal"
+#-------	
+#Site3 - "coresvcs.bfwpub.com"
+	#Check to see if folder path exists. If it does not create it. 
+	If(!(Test-Path $PhysicalPath3))
+	{
+		New-Item -ItemType directory -Path ($PhysicalPath3 + $FolderName3) #-confirm
+	}
+	#Check to see if the AppPool exits. If it does not exist then add a completely new AppPool
+	if(!(Test-Path ("IIS:\AppPools\" + $AppPoolName3)))
+	{
+		#Name the app pool the same as the site name
+		$appPool = New-Item ("IIS:\AppPools\" + $siteName3)
+
+	#Display Default AppPool Settings
+		#"AppPool = " + $appPool
+		#"UserName = " + $appPool.processModel.userName
+		#"Password = " + $appPool.processModel.password
+		#"Runtime = " + $appPool.managedRuntimeVersion
+
+	#Set AppPool Settings	
+		#$appPool.processModel.identityType = "SomeUser" #Specify User here or use numbers (1-4)
+		#$appPool.processModel.username = "someUser"
+		#$appPool.processModel.password = "somePassword"
+		$appPool.managedRuntimeVersion = $AppPoolVersion3
+		#$appPool.managedPipeLineMode = "Integrated"
+		$appPool.enable32BitAppOnWin64 = "True"		#Enable 32-bit Application Setting
+		$appPool | Set-Item
+		
+	#Change Advanced AppPool Settings
+		#Set AppPool Recycle Request Limit
+		#Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.requests -Value 100000
+		
+		#Enable 32-bit Application Setting
+		#Set-itemProperty I("IIS:\AppPools\" + $AppPoolName3) -Name enable32BitAppOnWin64 -Value "true"
+		
+	}	
+	#Check to see if the Site exits. If it does not exist then add a completely new Site
+	if((Test-Path ("IIS:\AppPools\" + $AppPoolName3)))
+	{
+		New-Website -Name $SiteName3 -Port 80 -IPAddress "*" -HostHeader $HostHeader3 -ApplicationPool $SiteName3 -PhysicalPath $PhysicalPath3
+	}
+#-------	
+#ApplicationSite1 - "eCommerce"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $WebAppPhysicalPath1))
 	{
@@ -199,10 +238,10 @@ Stop-WebSite 'Default Web Site'
 	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool1)))
 	{
 		#Create New Web-Application
-		New-WebApplication -Name $WebAppDirName1 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath1 -ApplicationPool $WebAppAppPool1
+		New-WebApplication -Name $WebAppDirName1 -Site $SiteName3 -PhysicalPath $WebAppPhysicalPath1 -ApplicationPool $WebAppAppPool1
 	}
 #-------	
-#ApplicationSite2 - "HTS"
+#ApplicationSite2 - "entitlement"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $WebAppPhysicalPath2))
 	{
@@ -232,10 +271,10 @@ Stop-WebSite 'Default Web Site'
 	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool2)))
 	{
 		#Create New Web-Site
-		New-WebApplication -Name $WebAppDirName2 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath2 -ApplicationPool $WebAppAppPool2	
+		New-WebApplication -Name $WebAppDirName2 -Site $SiteName3 -PhysicalPath $WebAppPhysicalPath2 -ApplicationPool $WebAppAppPool2	
 	}
 #-------
-#ApplicationSite3 - "secure"
+#ApplicationSite3 - "profile"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $WebAppPhysicalPath3))
 	{
@@ -265,20 +304,20 @@ Stop-WebSite 'Default Web Site'
 	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool3)))
 	{
 		#Create New Web-Site
-		New-WebApplication -Name $WebAppDirName3 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath3 -ApplicationPool $WebAppAppPool3	
+		New-WebApplication -Name $WebAppDirName3 -Site $SiteName3 -PhysicalPath $WebAppPhysicalPath3 -ApplicationPool $WebAppAppPool3	
 	}
-#-------
-#ApplicationSite4 - "xbookapp"
+#-------	
+#Site4 - "cartsvc.macmillanhighered.com"
 	#Check to see if folder path exists. If it does not create it. 
-	If(!(Test-Path $WebAppPhysicalPath4))
+	If(!(Test-Path $PhysicalPath4))
 	{
-		New-Item -ItemType directory -Path $WebAppPhysicalPath4 #-confirm
+		New-Item -ItemType directory -Path ($PhysicalPath4 + $FolderName4) #-confirm
 	}
 	#Check to see if the AppPool exits. If it does not exist then add a completely new AppPool
-	if(!(Test-Path ("IIS:\AppPools\" + $WebAppAppPool4)))
+	if(!(Test-Path ("IIS:\AppPools\" + $AppPoolName4)))
 	{
 		#Name the app pool the same as the site name
-		$appPool = New-Item ("IIS:\AppPools\" + $WebAppAppPool4)
+		$appPool = New-Item ("IIS:\AppPools\" + $siteName4)
 
 	#Display Default AppPool Settings
 		#"AppPool = " + $appPool
@@ -290,16 +329,21 @@ Stop-WebSite 'Default Web Site'
 		#$appPool.processModel.identityType = "SomeUser" #Specify User here or use numbers (1-4)
 		#$appPool.processModel.username = "someUser"
 		#$appPool.processModel.password = "somePassword"
-		$appPool.managedRuntimeVersion = $WebAppAppPoolVersion4
+		$appPool.managedRuntimeVersion = $AppPoolVersion4
 		#$appPool.managedPipeLineMode = "Integrated"
 		$appPool | Set-Item
-	}
+		
+	#Change Advanced AppPool Settings
+		#Set AppPool Recycle Request Limit
+		#Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.requests -Value 100000
+		
+	}	
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
-	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool4)))
+	if((Test-Path ("IIS:\AppPools\" + $AppPoolName4)))
 	{
-		#Create New Web-Site
-		New-WebApplication -Name $WebAppDirName4 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath4 -ApplicationPool $WebAppAppPool4	
-	}
+		New-Website -Name $SiteName4 -Port 80 -IPAddress "*" -HostHeader $HostHeader4 -ApplicationPool $SiteName4 -PhysicalPath $PhysicalPath4
+	}	
+
 #---------------------------------------------------------------------
 #---------------------------------------------------------------------
 
@@ -315,7 +359,7 @@ Write-Output "----------------------------------"
 Write-Output "..."
 Write-Output " "
 
-#msdeploy -verb:sync -source:webserver -dest:webserver,computerName="tmpcustomweb02s" > S:\Logs\Custom_Staging\tmpcustomweb02s.log -confirm
+#msdeploy -verb:sync -source:webserver -dest:webserver,computerName="tmpcustomweb02s" > C:\Logs\Custom_Staging\tmpcustomweb02s.log -confirm
 	If(!(Test-Path $ServerSyncPath)){
 		New-Item -ItemType directory -Path $ServerSyncPath #-confirm
 	}

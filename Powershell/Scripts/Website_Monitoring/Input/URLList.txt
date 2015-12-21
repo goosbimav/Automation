@@ -1,8 +1,11 @@
 http://activation.macmillanhighered.com/
-http://coresvcs.bfwpub.com/ecommerce/
+https://reg.macmillanhighered.com/
+https://coresvcs.macmillanhighered.com/ecommerce/
 http://cart.macmillanhighered.com/CheckOut.aspx
 http://cartsvc.macmillanhighered.com/CartService.svc
+https://sampling.macmillanhighered.com/
 http://macmillanhighered.com/launchpad/myers10e
 http://macmillanhighered.com/Catalog
 http://10.9.211.118/BrainHoney/Welcome.vp/page.htm
 http://10.9.211.119/BrainHoney/Welcome.vp/page.htm
+

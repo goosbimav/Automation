@@ -19,55 +19,47 @@ $ServerSyncPath = "S:\Logs\ServerSync\"
 
 #---------------------------------------------------------------------
 #Site1 Parameters
-$SiteName1 = "activation.macmillanhighered.com" 
+$SiteName1 = "reg.macmillanhighered.com" 
 $AppPoolName1 = $SiteName1
 $AppPoolVersion1 = "v4.0" #Entered as (v2.0 or v4.0)
-$HostHeader1 = "qa-activation.macmillanhighered.com"
+$HostHeader1 = "reg.macmillanhighered.com"
 $FolderName1 = "DeployFolder"
-$PhysicalPath1 = "S:\deployments\sQA\MarsUI\"
-
-#Site2 Parameters
-$SiteName2 = "cart.macmillanhighered.com" 
-$AppPoolName2 = $SiteName2
-$AppPoolVersion2 = "v4.0" # Entered as (v2.0 or v4.0)
-$HostHeader2 = "qa-cart.macmillanhighered.com"
-$FolderName2 = "DeployFolder"
-$PhysicalPath2 = "S:\deployments\sQA\ShoppingCartUI\"
+$PhysicalPath1 = "S:\deployments\PROD\MarsUI\"
 
 #Site3 Parameters
-$SiteName3 = "coresvcs.bfwpub.com" 
+$SiteName3 = "coresvcs.macmillanhighered.com" 
 $AppPoolName3 = $SiteName3
 $AppPoolVersion3 = "v4.0" # Entered as (v2.0 or v4.0)
-$HostHeader3 = "qa-coresvcs.bfwpub.com"
+$HostHeader3 = "coresvcs.macmillanhighered.com"
 $FolderName3 = "DeployFolder"
-$PhysicalPath3 = "S:\EmptySite\"
+$PhysicalPath3 = "c:\EmptySite\"
 #-------
 #ApplicationSite1 Parameters
 $WebAppDirName1 = "eCommerce"
-$WebAppPhysicalPath1 = "S:\deployments\sQA\eCommerceService\"
+$WebAppPhysicalPath1 = "S:\deployments\PROD\eCommerceService\"
 $WebAppAppPool1 = $SiteName3
 $WebAppAppPoolVersion1 = "v4.0"
 #-------
 #ApplicationSite2 Parameters
 $WebAppDirName2 = "entitlement"
-$WebAppPhysicalPath2 = "S:\deployments\sQA\EntitlementService.Gateway\"
+$WebAppPhysicalPath2 = "S:\deployments\PROD\EntitlementService.Gateway\"
 $WebAppAppPool2 = $SiteName3
 $WebAppAppPoolVersion2 = "v4.0"
 #-------
 #ApplicationSite3 Parameters
 $WebAppDirName3 = "profile"
-$WebAppPhysicalPath3 = "S:\deployments\sQA\CW.ProfileService\"
+$WebAppPhysicalPath3 = "S:\deployments\PROD\CW.ProfileService\"
 $WebAppAppPool3 = $SiteName3
 $WebAppAppPoolVersion2 = "v4.0"
 #-------
 
 #Site4 Parameters
-$SiteName4 = "cartsvc.macmillanhighered.com" 
+$SiteName4 = "sampling.macmillanhighered.com" 
 $AppPoolName4 = $SiteName4
 $AppPoolVersion4 = "v4.0" # Entered as (v2.0 or v4.0)
-$HostHeader4 = "qa-cartsvc.macmillanhighered.com"
+$HostHeader4 = "sampling.macmillanhighered.com"
 $FolderName4 = "DeployFolder"
-$PhysicalPath4 = "S:\deployments\sQA\CartServices\"
+$PhysicalPath4 = "S:\deployments\PROD\iSample\"
 
 #---------------------------------------------------------------------
 
@@ -75,7 +67,7 @@ $PhysicalPath4 = "S:\deployments\sQA\CartServices\"
 #$Pause = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 #Stop the Default IIS Site to mitigate conflicts
-Stop-WebSite 'Default Web Site'
+#Stop-WebSite 'Default Web Site'
 #---------------------------------------------------------------------
 
 #---------------------------------------------------------------------
@@ -126,45 +118,8 @@ Stop-WebSite 'Default Web Site'
 	if((Test-Path ("IIS:\AppPools\" + $AppPoolName1)))
 	{	
 		#Create site and add default host header
-		New-Website -Name $SiteName1 -Port 80 -IPAddress "*" -HostHeader $HostHeader1 -ApplicationPool $SiteName1 -PhysicalPath $PhysicalPath1
+		New-Website -Name $SiteName1 -Port 80 -IPAddress "192.168.225.36" -HostHeader $HostHeader1 -ApplicationPool $SiteName1 -PhysicalPath $PhysicalPath1
 	}
-#-------	
-#Site2 - "cart.macmillanhighered.com"
-	#Check to see if folder path exists. If it does not create it. 
-	If(!(Test-Path $PhysicalPath2))
-	{
-		New-Item -ItemType directory -Path ($PhysicalPath2 + $FolderName2) #-confirm
-	}
-	#Check to see if the AppPool exits. If it does not exist then add a completely new AppPool
-	if(!(Test-Path ("IIS:\AppPools\" + $AppPoolName2)))
-	{
-		#Name the app pool the same as the site name
-		$appPool = New-Item ("IIS:\AppPools\" + $siteName2)
-
-	#Display Default AppPool Settings
-		#"AppPool = " + $appPool
-		#"UserName = " + $appPool.processModel.userName
-		#"Password = " + $appPool.processModel.password
-		#"Runtime = " + $appPool.managedRuntimeVersion
-
-	#Set AppPool Settings	
-		#$appPool.processModel.identityType = "SomeUser" #Specify User here or use numbers (1-4)
-		#$appPool.processModel.username = "someUser"
-		#$appPool.processModel.password = "somePassword"
-		$appPool.managedRuntimeVersion = $AppPoolVersion2
-		#$appPool.managedPipeLineMode = "Integrated"
-		$appPool | Set-Item
-		
-	#Change Advanced AppPool Settings
-		#Set AppPool Recycle Request Limit
-		#Set-ItemProperty ("IIS:\AppPools\" + $AppPoolName1) -Name recycling.periodicRestart.requests -Value 100000
-		
-	}	
-	#Check to see if the Site exits. If it does not exist then add a completely new Site
-	if((Test-Path ("IIS:\AppPools\" + $AppPoolName2)))
-	{
-		New-Website -Name $SiteName2 -Port 80 -IPAddress "*" -HostHeader $HostHeader2 -ApplicationPool $SiteName2 -PhysicalPath $PhysicalPath2
-	}	
 #-------	
 #Site3 - "coresvcs.bfwpub.com"
 	#Check to see if folder path exists. If it does not create it. 
@@ -204,7 +159,7 @@ Stop-WebSite 'Default Web Site'
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
 	if((Test-Path ("IIS:\AppPools\" + $AppPoolName3)))
 	{
-		New-Website -Name $SiteName3 -Port 80 -IPAddress "*" -HostHeader $HostHeader3 -ApplicationPool $SiteName3 -PhysicalPath $PhysicalPath3
+		New-Website -Name $SiteName3 -Port 80 -IPAddress "192.168.225.36" -HostHeader $HostHeader3 -ApplicationPool $SiteName3 -PhysicalPath $PhysicalPath3
 	}
 #-------	
 #ApplicationSite1 - "eCommerce"
@@ -307,7 +262,7 @@ Stop-WebSite 'Default Web Site'
 		New-WebApplication -Name $WebAppDirName3 -Site $SiteName3 -PhysicalPath $WebAppPhysicalPath3 -ApplicationPool $WebAppAppPool3	
 	}
 #-------	
-#Site4 - "cartsvc.macmillanhighered.com"
+#Site4 - "sampling.macmillanhighered.com"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $PhysicalPath4))
 	{
@@ -341,9 +296,10 @@ Stop-WebSite 'Default Web Site'
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
 	if((Test-Path ("IIS:\AppPools\" + $AppPoolName4)))
 	{
-		New-Website -Name $SiteName4 -Port 80 -IPAddress "*" -HostHeader $HostHeader4 -ApplicationPool $SiteName4 -PhysicalPath $PhysicalPath4
+		New-Website -Name $SiteName4 -Port 80 -IPAddress "192.168.225.36" -HostHeader $HostHeader4 -ApplicationPool $SiteName4 -PhysicalPath $PhysicalPath4
 	}	
 
+#-------	
 #---------------------------------------------------------------------
 #---------------------------------------------------------------------
 

@@ -19,30 +19,18 @@ $ServerSyncPath = "S:\Logs\ServerSync\"
 
 #---------------------------------------------------------------------
 #Site1 Parameters
-$SiteName1 = "px.bfwpub.com" 
+$SiteName1 = "api.bfwpub.com" 
 $AppPoolName1 = $SiteName1
 $AppPoolVersion1 = "v4.0" #Entered as (v2.0 or v4.0)
 $HostHeader1 = ""
 $FolderName1 = "Empty"
-$PhysicalPath1 = "S:\Web\$FolderName"
+$PhysicalPath1 = "S:\Web\$FolderName1"
 #-------
 #ApplicationSite1 Parameters
 $WebAppDirName1 = "api"
 $WebAppPhysicalPath1 = "S:\Deployments\AWS\PXWebAPI\"
-$WebAppAppPool1 = "PXWebAPI"
+$WebAppAppPool1 = "api.bfwpub.com"
 $WebAppAppPoolVersion1 = "v4.0"
-#-------
-#ApplicationSite2 Parameters
-$WebAppDirName2 = "PxEG"
-$WebAppPhysicalPath2 = "S:\Deployments\AWS\PxEG"
-$WebAppAppPool2 = $WebAppDirName2
-$WebAppAppPoolVersion2 = "v4.0"
-#-------
-#ApplicationSite3 Parameters
-$WebAppDirName3 = "PxHTS"
-$WebAppPhysicalPath3 = "S:\Deployments\AWS\PxHTS"
-$WebAppAppPool3 = $WebAppDirName3
-$WebAppAppPoolVersion3 = "v4.0"
 #-------
 #---------------------------------------------------------------------
 
@@ -55,7 +43,7 @@ Stop-WebSite 'Default Web Site'
 
 #---------------------------------------------------------------------
 #---------------------------------------------------------------------
-#Site1 - "px.bfwpub.com"
+#Site1 - "api.bfwpub.com"
 	#Check to see if folder path exists. If it does not create it. 
 	If(!(Test-Path $PhysicalPath1)){
 		New-Item -ItemType directory -Path ($PhysicalPath1 + $FolderName1) #-confirm
@@ -82,7 +70,7 @@ Stop-WebSite 'Default Web Site'
 		
 	#Change Advanced AppPool Settings
 		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.time -Value 08:00:00 #Translates to (days.hours:minutes:seconds)
+		#Set-ItemProperty -Path ("IIS:\AppPools\" + $AppPoolName1) -Name Recycling.periodicRestart.time -Value 08:00:00 #Translates to (days.hours:minutes:seconds)
 		
 	}	
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
@@ -121,7 +109,7 @@ Stop-WebSite 'Default Web Site'
 		
 	#Change Advanced AppPool Settings
 		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $WebAppAppPool1) -Name Recycling.periodicRestart.time -Value 09:00:00 #Translates to (days.hours:minutes:seconds)
+		#Set-ItemProperty -Path ("IIS:\AppPools\" + $WebAppAppPool1) -Name Recycling.periodicRestart.time -Value 09:00:00 #Translates to (days.hours:minutes:seconds)
 		
 	}
 	#Check to see if the Site exits. If it does not exist then add a completely new Site
@@ -129,82 +117,6 @@ Stop-WebSite 'Default Web Site'
 	{
 		#Create New Web-Application
 		New-WebApplication -Name $WebAppDirName1 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath1 -ApplicationPool $WebAppAppPool1
-	}
-#-------	
-#ApplicationSite2 - "PxEG"
-	#Check to see if folder path exists. If it does not create it. 
-	If(!(Test-Path $WebAppPhysicalPath2))
-	{
-		New-Item -ItemType directory -Path $WebAppPhysicalPath2 #-confirm
-	}
-	#Check to see if the AppPool exits. If it does not exist then add a completely new AppPool
-	if(!(Test-Path ("IIS:\AppPools\" + $WebAppAppPool2)))
-	{
-		#Name the app pool the same as the site name
-		$appPool = New-Item ("IIS:\AppPools\" + $WebAppAppPool2)
-
-	#Display Default AppPool Settings
-		#"AppPool = " + $appPool
-		#"UserName = " + $appPool.processModel.userName
-		#"Password = " + $appPool.processModel.password
-		#"Runtime = " + $appPool.managedRuntimeVersion
-
-	#Set AppPool Settings	
-		#$appPool.processModel.identityType = "SomeUser" #Specify User here or use numbers (1-4)
-		#$appPool.processModel.username = "someUser"
-		#$appPool.processModel.password = "somePassword"
-		$appPool.managedRuntimeVersion = $WebAppAppPoolVersion2
-		#$appPool.managedPipeLineMode = "Integrated"
-		$appPool | Set-Item
-		
-		#Change Advanced AppPool Settings
-		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $WebAppAppPool2) -Name Recycling.periodicRestart.time -Value 08:00:00 #Translates to (days.hours:minutes:seconds)
-		
-	}
-	#Check to see if the Site exits. If it does not exist then add a completely new Site
-	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool2)))
-	{
-		#Create New Web-Site
-		New-WebApplication -Name $WebAppDirName2 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath2 -ApplicationPool $WebAppAppPool2	
-	}
-#-------
-#ApplicationSite3 - "PxHTS"
-	#Check to see if folder path exists. If it does not create it. 
-	If(!(Test-Path $WebAppPhysicalPath3))
-	{
-		New-Item -ItemType directory -Path $WebAppPhysicalPath3 #-confirm
-	}
-	#Check to see if the AppPool exits. If it does not exist then add a completely new AppPool
-	if(!(Test-Path ("IIS:\AppPools\" + $WebAppAppPool3)))
-	{
-		#Name the app pool the same as the site name
-		$appPool = New-Item ("IIS:\AppPools\" + $WebAppAppPool3)
-
-	#Display Default AppPool Settings
-		#"AppPool = " + $appPool
-		#"UserName = " + $appPool.processModel.userName
-		#"Password = " + $appPool.processModel.password
-		#"Runtime = " + $appPool.managedRuntimeVersion
-
-	#Set AppPool Settings	
-		#$appPool.processModel.identityType = "SomeUser" #Specify User here or use numbers (1-4)
-		#$appPool.processModel.username = "someUser"
-		#$appPool.processModel.password = "somePassword"
-		$appPool.managedRuntimeVersion = $WebAppAppPoolVersion3
-		#$appPool.managedPipeLineMode = "Integrated"
-		$appPool | Set-Item
-		
-		#Change Advanced AppPool Settings
-		#Set AppPool Recycle to a specific Time Interval
-		Set-ItemProperty -Path ("IIS:\AppPools\" + $WebAppAppPool3) -Name Recycling.periodicRestart.time -Value 08:00:00 #Translates to (days.hours:minutes:seconds)
-		
-	}
-	#Check to see if the Site exits. If it does not exist then add a completely new Site
-	if((Test-Path ("IIS:\AppPools\" + $WebAppAppPool3)))
-	{
-		#Create New Web-Site
-		New-WebApplication -Name $WebAppDirName3 -Site $SiteName1 -PhysicalPath $WebAppPhysicalPath3 -ApplicationPool $WebAppAppPool3	
 	}
 #---------------------------------------------------------------------
 #---------------------------------------------------------------------
